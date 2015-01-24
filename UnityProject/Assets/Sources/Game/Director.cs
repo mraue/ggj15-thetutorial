@@ -86,7 +86,7 @@ namespace GGJ15.TheTutorial
 		{
 			tutorialActionRegistry.ResetStep();
 
-			_uiController.tutorialBubbleView.Show(_currentStep.text);
+			_uiController.tutorialBubbleView.Show(ReplaceText(_currentStep.text));
 
 			foreach (var actionId in _currentStep.actions)
 			{
@@ -99,7 +99,20 @@ namespace GGJ15.TheTutorial
 
 			_playerController.setMovement(!_currentStep.blockPlayerMovement);
 
+			if (_currentStep.continuesTutorial)
+			{
+				_currentTutorialLevel += 1;
+				_currentTutorialLevel = _currentTutorialLevel < _tutorialStepList.levels.Count
+					? _currentTutorialLevel
+					: _tutorialStepList.levels.Count - 1;
+			}
+
 			_timeStepStarted = Time.time;
+		}
+
+		string ReplaceText(string text)
+		{
+			return text.Replace("{n}", (_currentLevel + 1).ToString());
 		}
 
 		public void EndGame()

@@ -13,5 +13,7 @@ namespace GGJ15.TheTutorial
 		public List<TutorialActionId> actions { get; set; }
 
 		public bool blockPlayerMovement { get; set; }
+
+		public bool continuesTutorial { get; set; }
 	}
 }

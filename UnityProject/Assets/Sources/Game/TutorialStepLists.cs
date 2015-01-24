@@ -16,14 +16,14 @@ namespace GGJ15.TheTutorial
 					{
 						new TutorialStep
 						{
-							text = "Lesson 1: Movement",
+							text = "Lesson {n}: Movement",
 							duration = 2f,
 							actions = new List<TutorialActionId> { },
 							blockPlayerMovement = true
 						},
 						new TutorialStep
 						{
-							text = "Press D to move left",
+							text = "Press right arrow to move right",
 							duration = 2f,
 							actions = new List<TutorialActionId> { }
 						}
@@ -36,7 +36,8 @@ namespace GGJ15.TheTutorial
 							{
 								text = "PRESS D TO MOVE LEFT",
 								duration = 2f,
-									actions = new List<TutorialActionId> { TutorialActionId.DoorGrows }
+								actions = new List<TutorialActionId> { TutorialActionId.SlowyPushyAction },
+								continuesTutorial = true,
 							}
 						},
 						{ 
@@ -59,7 +60,58 @@ namespace GGJ15.TheTutorial
 							}
 						},
 					}
-				}
+				},
+					new TutorialLevel
+					{
+						steps = new List<TutorialStep>
+							{
+								new TutorialStep
+								{
+									text = "Lesson {n}: Movement",
+									duration = 2f,
+									actions = new List<TutorialActionId> { },
+									blockPlayerMovement = true
+								},
+								new TutorialStep
+								{
+									text = "Press right arrow to move right",
+									duration = 2f,
+									actions = new List<TutorialActionId> { }
+								}
+							},
+						eventSteps = new Dictionary<GameEventId, TutorialStep>
+						{
+							{ 
+								GameEventId.ReachedLeftCollider,
+								new TutorialStep
+								{
+									text = "I thought we talked about this ...",
+									duration = 2f,
+									actions = new List<TutorialActionId> { TutorialActionId.DoorGrows },
+									continuesTutorial = true,
+								}
+							},
+							{ 
+								GameEventId.PassedCenter,
+								new TutorialStep
+								{
+									text = "AWESOME JOB! KEEP GOING",
+									duration = 2f,
+									actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+								}
+							},
+							{ 
+								GameEventId.PlayerReachedExit,
+								new TutorialStep
+								{
+									text = "YOU DID IT!!",
+									duration = 1f,
+									actions = new List<TutorialActionId> { },
+									blockPlayerMovement = true
+								}
+							},
+						}
+					}
 			};
 		}
 	}
