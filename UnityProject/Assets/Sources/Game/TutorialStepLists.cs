@@ -54,7 +54,8 @@ namespace GGJ15.TheTutorial
 							{
 								text = "YOU DID IT!!",
 								duration = 1f,
-								actions = new List<TutorialActionId> { }
+								actions = new List<TutorialActionId> { },
+								blockPlayerMovement = true
 							}
 						},
 					}

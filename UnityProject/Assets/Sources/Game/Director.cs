@@ -145,7 +145,6 @@ namespace GGJ15.TheTutorial
 				if (id == GameEventId.PlayerReachedExit)
 				{
 					float delay = step != null ? step.duration : 0f;
-					_playerController.setMovement(false);
 					StartCoroutine(EndGameAfterDelay(delay));
 				}
 			}
