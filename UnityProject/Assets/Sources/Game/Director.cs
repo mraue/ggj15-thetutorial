@@ -5,6 +5,7 @@ namespace GGJ15.TheTutorial
 {
 	public class Director : MonoBehaviour
 	{	
+
 		void Awake()
 		{
 			Application.LoadLevelAdditive("UI");
@@ -18,7 +19,7 @@ namespace GGJ15.TheTutorial
 
 		public void CharacterReachedDoor()
 		{
-
+			Debug.Log("Director knows player is at exit");
 		}
 	}
 }
