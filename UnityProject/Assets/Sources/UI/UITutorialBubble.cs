@@ -28,7 +28,7 @@ public class UITutorialBubble : MonoBehaviour {
 
 		backgroundImage.transform.DOScale(Vector3.one, animationTime).SetEase(Ease.OutBack, 1.1f);
 		backgroundImage.DOColor(Color.white, 0.1f);
-		textLabel.DOColor(Color.black, animationTime);
+		//textLabel.DOColor(Color.black, animationTime);
 
 //		backgroundImage.DOColor(Color.white, animationTime);
 //		textLabel.DOColor(Color.white, animationTime);
@@ -41,7 +41,8 @@ public class UITutorialBubble : MonoBehaviour {
 	public void Hide(bool animated = true){
 		float animationTime = (animated) ? 0.1f : 0f;
 		backgroundImage.DOColor(Color.clear, animationTime);
-		textLabel.DOColor(Color.clear, animationTime);
+		textLabel.text = "";
+		//textLabel.DOColor(Color.clear, animationTime);
 	}
 
 

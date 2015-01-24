@@ -19,7 +19,6 @@ namespace GGJ15.TheTutorial
 		void Awake()
 		{
 			_animation = GetComponent<Animation>();
-			StartAnimation(2);
 		}
 
 		public void OnStart()
@@ -33,14 +32,17 @@ namespace GGJ15.TheTutorial
 			Debug.Log("StartAnimation");
 			_animationIndex = 0;
 			_animation.Play (animationList[_animationIndex].name);
+			_animationIndex = 1;
+			_animation.Play (animationList[_animationIndex].name);
 			_levelMax = level;
 
 		}
 
 		void Update()
 		{
-			if(!_animation.isPlaying && _animationIndex < _levelMax){
+			if(!_animation.isPlaying && _animationIndex <= _levelMax){
 				_animationIndex++;
+				Debug.Log ("UIStartView:Update - Play animation "+animationList[_animationIndex].name);
 				_animation.Play (animationList[_animationIndex].name);
 			}
 

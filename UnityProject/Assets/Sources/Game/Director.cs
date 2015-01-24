@@ -105,6 +105,7 @@ namespace GGJ15.TheTutorial
 		public void EndGame()
 		{
 			_uiController.startView.Show();
+			_uiController.startView.StartAnimation(_currentLevel);
 			_uiController.moneyHUDView.AddAmount(Random.Range(10000 * (_currentLevel + 1), 100000 * (_currentLevel + 1)));
 			CleanupLevel();
 		}

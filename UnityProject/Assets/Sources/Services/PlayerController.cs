@@ -51,6 +51,8 @@ namespace GGJ15.TheTutorial
 
 		public void setMovement(bool val){
 			allowMovement = val;
+			if  (!val)
+				rigidbody2D.velocity = Vector2.zero;
 		}			
 	}
 }
