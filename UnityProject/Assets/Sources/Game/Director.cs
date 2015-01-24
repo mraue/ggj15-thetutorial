@@ -34,6 +34,7 @@ namespace GGJ15.TheTutorial
 			_playerController = GameContext.currentInstance.playerController;
 			_playerController.spawnPlayer();
 			GameContext.currentInstance.uiController.tutorialBubbleView.Show("MOVE RIGHT");
+			GameContext.currentInstance.uiController.startView.Hide (false);
 			StartTutorial(_currentTutorialLevel);
 		}
 
