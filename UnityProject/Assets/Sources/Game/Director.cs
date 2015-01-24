@@ -95,6 +95,7 @@ namespace GGJ15.TheTutorial
 		public void CharacterReachedDoor()
 		{
 			_uiController.startView.Show();
+			_uiController.moneyHUDView.AddAmount(Random.Range(10000 * (_currentLevel + 1), 100000 * (_currentLevel + 1)));
 			CleanupLevel();
 		}
 
