@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CharacterController.cs" />
      <Compile Include="Assets\Sources\App\LoadingHandler.cs" />
+     <Compile Include="Assets\Sources\Game\Director.cs" />
      <Compile Include="Assets\Sources\Services\Audio\AudioId.cs" />
      <Compile Include="Assets\Sources\Services\Audio\AudioRegistry.cs" />
      <Compile Include="Assets\Sources\Services\Audio\AudioService.cs" />
