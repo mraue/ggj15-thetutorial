@@ -6,7 +6,7 @@ namespace GGJ15.TheTutorial
 	{
 		public UIStartView startView;
 
-		public UIStartView endView;
+		public UIEndView endView;
 
 		void Awake()
 		{
