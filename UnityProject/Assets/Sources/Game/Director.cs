@@ -31,6 +31,8 @@ namespace GGJ15.TheTutorial
 
 		public void OnUIStart()
 		{
+			_playerController.initPlayer();
+			Start();
 		}
 	}
 }

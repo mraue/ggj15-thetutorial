@@ -23,13 +23,11 @@ namespace GGJ15.TheTutorial
 			GameContext.currentInstance.playerController = this;
 		}
 
-		void initPlayer (){
+		public void initPlayer (){
 			transform.position = new Vector2();
 			transform.position = startPos.transform.position;
 			gameObject.GetComponent<Rigidbody2D>().Sleep();
 			playerSprite.GetComponent<SpriteRenderer>().color = Color.clear;
-			//setMovement(false);
-			//rigidbody2d.isKinematic = true;
 		}
 
 		public void spawnPlayer(){
@@ -57,7 +55,6 @@ namespace GGJ15.TheTutorial
 		}
 
 		public void setMovement(bool val){
-			Debug.Log("setMovement()");
 			allowMovement = val;
 		}
 
