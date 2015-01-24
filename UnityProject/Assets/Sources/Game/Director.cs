@@ -18,11 +18,13 @@ namespace GGJ15.TheTutorial
 		{
 			_uiController = GameContext.currentInstance.uiController;
 			_playerController = GameContext.currentInstance.playerController;
+			_playerController.spawnPlayer();
 		}
 
 		public void CharacterReachedDoor()
 		{
 			_uiController.startView.Show();
+			_playerController.setMovement(false);
 		}
 
 		public void OnUIStart()

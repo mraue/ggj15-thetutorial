@@ -16,9 +16,11 @@ namespace GGJ15.TheTutorial
 
 		// Use this for initialization
 		void Start () {
+		}
+		
+		void Awake(){
 			initPlayer();
-			spawnPlayer();
-
+			GameContext.currentInstance.playerController = this;
 		}
 
 		void initPlayer (){
@@ -26,13 +28,14 @@ namespace GGJ15.TheTutorial
 			transform.position = startPos.transform.position;
 			gameObject.GetComponent<Rigidbody2D>().Sleep();
 			playerSprite.GetComponent<SpriteRenderer>().color = Color.clear;
+			//setMovement(false);
 			//rigidbody2d.isKinematic = true;
 		}
 
-		void spawnPlayer(){
+		public void spawnPlayer(){
 			//rigidbody2d.isKinematic = false;
 			gameObject.GetComponent<Rigidbody2D>().WakeUp();
-			allowMovement = true;
+			setMovement(true);
 			playerSprite.GetComponent<SpriteRenderer>().DOColor(Color.white,0.5f);
 		}
 		
@@ -53,9 +56,11 @@ namespace GGJ15.TheTutorial
 			//Debug.Log ("goodbye");
 		}
 
-		void Awake(){
-			GameContext.currentInstance.playerController = this;
+		public void setMovement(bool val){
+			Debug.Log("setMovement()");
+			allowMovement = val;
 		}
+
 
 	}
 }
