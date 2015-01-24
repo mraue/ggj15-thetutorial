@@ -2,11 +2,11 @@
 
 namespace GGJ15.TheTutorial
 {
-	public class TutorialStepList
+	public class TutorialStepLists
 	{
 		public List<List<TutorialStep>> steps { get; set; }
 
-		public TutorialStepList()
+		public TutorialStepLists()
 		{
 			steps = new List<List<TutorialStep>>
 			{
@@ -20,7 +20,7 @@ namespace GGJ15.TheTutorial
 					},
 					new TutorialStep
 					{
-						text = "Yeah, we did it",
+						text = "Totally dude",
 						duration = 2f,
 						actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
 					}
