@@ -134,7 +134,6 @@ namespace GGJ15.TheTutorial
 				{
 					Log.Info("DIRECTOR: GAME EVENT TRIGGERED STEP");
 					_currentStep = step;
-					_currentTutorialStep -= 1;
 					StartCurrentStep();
 				}
 			}
