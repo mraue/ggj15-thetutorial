@@ -381,8 +381,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23, y: 733}
-  m_SizeDelta: {x: -559, y: -173.029999}
+  m_AnchoredPosition: {x: 0, y: -3}
+  m_SizeDelta: {x: -559, y: -173.030029}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1049455369
 MonoBehaviour:
@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bfdc63107b34d1db3b37325d92719c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 1049455369}
 --- !u!111 &1049455372
 Animation:
   m_ObjectHideFlags: 0
