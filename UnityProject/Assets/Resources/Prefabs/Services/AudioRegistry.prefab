@@ -42,6 +42,8 @@ MonoBehaviour:
   audioMap:
   - audioId: 1
     audioClip: {fileID: 8300000, guid: c45287dafcf1345ffaeb12a515f7e14c, type: 3}
+  - audioId: 2
+    audioClip: {fileID: 8300000, guid: 3a44143e7b95743f28f237438978ff83, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

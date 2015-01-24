@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace GGJ15.TheTutorial
@@ -13,7 +13,8 @@ namespace GGJ15.TheTutorial
 
 		public void OnStart()
 		{
-			Services.currentInstance.audioService.Play(AudioId.ButtonClick);
+			Services.currentInstance.audioService.PlayMusic(AudioId.MainTheme);
+			Services.currentInstance.audioService.PlaySound(AudioId.ButtonClick);
 			Application.LoadLevel(MAIN_SCENE);
 		}
 	}

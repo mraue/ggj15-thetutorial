@@ -78,7 +78,7 @@ NavMeshSettings:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 113156, guid: b32310113b0ac425a8b61bd64303af6f, type: 2}
-  m_PrefabInternal: {fileID: 2114643111}
+  m_PrefabInternal: {fileID: 1342580932}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 644722084}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11413156, guid: b32310113b0ac425a8b61bd64303af6f,
     type: 2}
-  m_PrefabInternal: {fileID: 2114643111}
+  m_PrefabInternal: {fileID: 1342580932}
   m_GameObject: {fileID: 644722082}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -105,11 +105,13 @@ MonoBehaviour:
   audioMap:
   - audioId: 1
     audioClip: {fileID: 8300000, guid: c45287dafcf1345ffaeb12a515f7e14c, type: 3}
+  - audioId: 2
+    audioClip: {fileID: 8300000, guid: 3a44143e7b95743f28f237438978ff83, type: 3}
 --- !u!4 &644722084
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 413156, guid: b32310113b0ac425a8b61bd64303af6f, type: 2}
-  m_PrefabInternal: {fileID: 2114643111}
+  m_PrefabInternal: {fileID: 1342580932}
   m_GameObject: {fileID: 644722082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -201,7 +203,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &2114643111
+--- !u!1001 &1342580932
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
