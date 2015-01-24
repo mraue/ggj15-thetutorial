@@ -10,7 +10,6 @@ namespace GGJ15.TheTutorial
 
 		public void Play(AudioId audioId)
 		{
-			// Not using a dictionary for now, so the sound can easily be exchanged in the editor
 			for(int i=0; i<audioRegistry.audioMap.Count; i++)
 			{
 				var item = audioRegistry.audioMap[i];

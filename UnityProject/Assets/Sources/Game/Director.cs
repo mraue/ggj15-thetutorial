@@ -12,6 +12,12 @@ namespace GGJ15.TheTutorial
 
 		void Start()
 		{
+			GameContext.currentInstance.director = this;
+		}
+
+		public void CharacterReachedDoor()
+		{
+
 		}
 	}
 }

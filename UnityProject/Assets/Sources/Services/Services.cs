@@ -39,4 +39,3 @@ namespace GGJ15.TheTutorial
 		}
 	}
 }
-
