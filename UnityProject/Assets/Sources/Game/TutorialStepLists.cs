@@ -47,6 +47,15 @@ namespace GGJ15.TheTutorial
 								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
 							}
 						},
+						{ 
+							GameEventId.PlayerReachedExit,
+							new TutorialStep
+							{
+								text = "YOU DID IT!!",
+								duration = 1f,
+								actions = new List<TutorialActionId> { }
+							}
+						},
 					}
 				}
 			};

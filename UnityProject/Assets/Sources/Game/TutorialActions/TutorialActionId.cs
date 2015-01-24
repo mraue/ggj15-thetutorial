@@ -5,5 +5,7 @@
 		None = 0,
 		SlowyPushyAction = 1,
 		DoorArrows = 2,
+		DoorClosesIn = 3,
+		DoorGrows = 4,
 	}
 }
