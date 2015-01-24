@@ -14,5 +14,10 @@ namespace GGJ15.TheTutorial
 	public class AudioRegistry : MonoBehaviour
 	{
 		public List<EventAudioClip> audioMap;
+
+		void Awake()
+		{
+			GameObject.DontDestroyOnLoad(this.gameObject);
+		}
 	}
 }

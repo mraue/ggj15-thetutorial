@@ -26,6 +26,8 @@ namespace GGJ15.TheTutorial
 
 		void Awake()
 		{
+			GameObject.DontDestroyOnLoad(this.gameObject);
+
 			if (Services.currentInstance == null)
 			{
 				_currentInstance = this;

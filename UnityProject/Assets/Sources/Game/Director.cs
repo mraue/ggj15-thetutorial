@@ -11,6 +11,8 @@ namespace GGJ15.TheTutorial
 		UIController _uiController;
 		PlayerController _playerController;
 
+		int _currentLevel;
+
 		int _currentTutorialLevel;
 		int _currentTutorialStep;
 		TutorialStepLists _tutorialStepList = new TutorialStepLists();
@@ -105,8 +107,11 @@ namespace GGJ15.TheTutorial
 
 		public void OnUIStart()
 		{
+			_currentLevel += 1;
+			Log.Info("DIRECTOR: STARTING NEXT LEVEL " + _currentLevel);
 			_playerController.initPlayer();
-			Start();
+			_playerController.spawnPlayer();
+			StartTutorial(_currentTutorialLevel);
 		}
 	}
 }
