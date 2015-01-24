@@ -9,6 +9,10 @@ namespace GGJ15.TheTutorial
 
 		void Start()
 		{
+		}
+
+		public void OnStart()
+		{
 			Application.LoadLevel(MAIN_SCENE);
 		}
 	}
