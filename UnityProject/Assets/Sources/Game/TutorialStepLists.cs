@@ -18,7 +18,8 @@ namespace GGJ15.TheTutorial
 						{
 							text = "Lesson 1: Movement",
 							duration = 2f,
-							actions = new List<TutorialActionId> { }
+							actions = new List<TutorialActionId> { },
+							blockPlayerMovement = true
 						},
 						new TutorialStep
 						{

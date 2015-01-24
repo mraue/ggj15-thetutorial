@@ -85,7 +85,9 @@ namespace GGJ15.TheTutorial
 		void StartCurrentStep()
 		{
 			tutorialActionRegistry.ResetStep();
+
 			_uiController.tutorialBubbleView.Show(_currentStep.text);
+
 			foreach (var actionId in _currentStep.actions)
 			{
 				TutorialAction action = tutorialActionRegistry.GetAction(actionId);
@@ -94,6 +96,9 @@ namespace GGJ15.TheTutorial
 					action.Activate();
 				}
 			}
+
+			_playerController.setMovement(!_currentStep.blockPlayerMovement);
+
 			_timeStepStarted = Time.time;
 		}
 

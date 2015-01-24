@@ -11,5 +11,7 @@ namespace GGJ15.TheTutorial
 		public float duration { get; set; }
 
 		public List<TutorialActionId> actions { get; set; }
+
+		public bool blockPlayerMovement { get; set; }
 	}
 }
