@@ -47,6 +47,8 @@ namespace GGJ15.TheTutorial
 		
 		void OnTriggerEnter2D (Collider2D other) {
 			//Debug.Log ("hello");
+			
+			rigidbody2D.velocity = new Vector2(0, 0);
 			GameContext.currentInstance.director.CharacterReachedDoor();
 		}
 		
