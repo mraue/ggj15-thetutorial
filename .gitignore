@@ -14,3 +14,5 @@ sysinfo.txt
 UnityProject-csharp.sln
 UnityProject.sln
 UnityProject/Assembly-CSharp-vs.csproj
+UnityProject/*.csproj
+UnityProject/UnityProject.userprefs
