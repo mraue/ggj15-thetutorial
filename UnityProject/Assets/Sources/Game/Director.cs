@@ -8,11 +8,12 @@ namespace GGJ15.TheTutorial
 		void Awake()
 		{
 			Application.LoadLevelAdditive("UI");
+			GameContext.currentInstance.director = this;
 		}
 
 		void Start()
 		{
-			GameContext.currentInstance.director = this;
+			GameContext.currentInstance.uiController.startView.Show();
 		}
 
 		public void CharacterReachedDoor()

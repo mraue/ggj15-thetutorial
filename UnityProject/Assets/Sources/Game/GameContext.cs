@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace GGJ15.TheTutorial
+﻿namespace GGJ15.TheTutorial
 {
 	public class GameContext
 	{
@@ -12,6 +10,7 @@ namespace GGJ15.TheTutorial
 				{
 					_currentInstance = new GameContext();
 				}
+
 				return _currentInstance;
 			}
 		}
@@ -19,7 +18,7 @@ namespace GGJ15.TheTutorial
 
 		public Director director { get; set; }
 
-		public CharacterController characterController { get; set; }
+		public PlayerController playerController { get; set; }
 
 		public UIController uiController { get; set; }
 	}
