@@ -4,25 +4,40 @@ namespace GGJ15.TheTutorial
 {
 	public class TutorialStepLists
 	{
-		public List<List<TutorialStep>> steps { get; set; }
+		public List<TutorialLevel> levels { get; set; }
 
 		public TutorialStepLists()
 		{
-			steps = new List<List<TutorialStep>>
+			levels = new List<TutorialLevel>
 			{
-				new List<TutorialStep>
+				new TutorialLevel
 				{
-					new TutorialStep
+					steps = new List<TutorialStep>
 					{
-						text = "Yeah, we did it",
-						duration = 2f,
-						actions = new List<TutorialActionId> { }
+						new TutorialStep
+						{
+							text = "Yeah, we did it",
+							duration = 2f,
+							actions = new List<TutorialActionId> { }
+						},
+						new TutorialStep
+						{
+							text = "Totally dude",
+							duration = 2f,
+							actions = new List<TutorialActionId> { }
+						}
 					},
-					new TutorialStep
+					eventSteps = new Dictionary<GameEventId, TutorialStep>
 					{
-						text = "Totally dude",
-						duration = 2f,
-						actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+						{ 
+							GameEventId.ReachedLeftCollider,
+							new TutorialStep
+							{
+								text = "Totally dude",
+								duration = 2f,
+								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+							}
+						}
 					}
 				}
 			};

@@ -151,6 +151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 469108}
   - 61: {fileID: 6169108}
+  - 114: {fileID: 11401404}
   m_Layer: 0
   m_Name: Wall_Left
   m_TagString: Untagged
@@ -574,6 +575,18 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11401404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63586891663b94c01a4c0efbb4be6010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventId: 1
 --- !u!114 &11442970
 MonoBehaviour:
   m_ObjectHideFlags: 1

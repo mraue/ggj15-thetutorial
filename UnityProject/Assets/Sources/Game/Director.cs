@@ -19,6 +19,7 @@ namespace GGJ15.TheTutorial
 		float _timeStepStarted;
 
 		List<TutorialStep> _currentTutorialSteps;
+		Dictionary<GameEventId, TutorialStep> _currentTutorialEventSteps;
 
 		bool _tutorialIsActive;
 
@@ -42,10 +43,11 @@ namespace GGJ15.TheTutorial
 
 		void StartTutorial(int _currentTutorialLevel)
 		{
-			if (_currentTutorialLevel < _tutorialStepList.steps.Count)
+			if (_currentTutorialLevel < _tutorialStepList.levels.Count)
 			{
 				Log.Info("DIRECTOR: STARTING TUTORIAL " + _currentTutorialLevel);
-				_currentTutorialSteps = _tutorialStepList.steps[_currentTutorialLevel];
+				_currentTutorialSteps = _tutorialStepList.levels[_currentTutorialLevel].steps;
+				_currentTutorialEventSteps = _tutorialStepList.levels[_currentTutorialLevel].eventSteps;
 				_tutorialIsActive = true;
 				_currentTutorialStep = 0;
 				_currentStep = null;
@@ -61,20 +63,8 @@ namespace GGJ15.TheTutorial
 					if (_currentStep == null)
 					{
 						Log.Info("DIRECTOR: INITALIZING STEP " + _currentTutorialStep);
-						tutorialActionRegistry.ResetStep();
 						_currentStep = _currentTutorialSteps[_currentTutorialStep];
-						_uiController.tutorialBubbleView.Show(_currentStep.text);
-
-						foreach (var actionId in _currentStep.actions)
-						{
-							TutorialAction action = tutorialActionRegistry.GetAction(actionId);
-							if (action != null)
-							{
-								action.Activate();
-							}
-						}
-
-						_timeStepStarted = Time.time;
+						StartCurrentStep();
 					}
 
 					if (Time.time > _timeStepStarted + _currentStep.duration)
@@ -90,6 +80,21 @@ namespace GGJ15.TheTutorial
 					_tutorialIsActive = false;
 				}
 			}
+		}
+
+		void StartCurrentStep()
+		{
+			tutorialActionRegistry.ResetStep();
+			_uiController.tutorialBubbleView.Show(_currentStep.text);
+			foreach (var actionId in _currentStep.actions)
+			{
+				TutorialAction action = tutorialActionRegistry.GetAction(actionId);
+				if (action != null)
+				{
+					action.Activate();
+				}
+			}
+			_timeStepStarted = Time.time;
 		}
 
 		public void CharacterReachedDoor()
@@ -113,6 +118,26 @@ namespace GGJ15.TheTutorial
 			_playerController.initPlayer();
 			_playerController.spawnPlayer();
 			StartTutorial(_currentTutorialLevel);
+		}
+
+		public void GameEventTriggered(GameEventId id)
+		{
+			Log.Info("DIRECTOR: GAME EVENT TRIGGERED " + id);
+
+			if (_currentTutorialEventSteps != null)
+			{
+				TutorialStep step = null;
+
+				_currentTutorialEventSteps.TryGetValue(id, out step);
+
+				if (step != null)
+				{
+					Log.Info("DIRECTOR: GAME EVENT TRIGGERED STEP");
+					_currentStep = step;
+					_currentTutorialStep -= 1;
+					StartCurrentStep();
+				}
+			}
 		}
 	}
 }
