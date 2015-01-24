@@ -16,7 +16,7 @@ namespace GGJ15.TheTutorial
 					{
 						text = "Yeah, we did it",
 						duration = 2f,
-						actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+						actions = new List<TutorialActionId> { }
 					},
 					new TutorialStep
 					{

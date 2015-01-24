@@ -13,6 +13,7 @@ namespace GGJ15.TheTutorial
 
 		public override float Activate()
 		{
+			Log.Info("TUTORIAL ACTION DOOR ARROWS : ACTIVATE !!!!");
 			float duration = 0f;
 			_animation.CrossFade("DoorArrowsActivate");
 			return duration;

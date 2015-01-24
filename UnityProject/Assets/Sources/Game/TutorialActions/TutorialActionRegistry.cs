@@ -10,9 +10,26 @@ namespace GGJ15.TheTutorial
 		public TutorialActionId id;
 		public TutorialAction action;
 	}
-		
+
 	public class TutorialActionRegistry : MonoBehaviour
 	{
 		public List<TutorialActionPair> tutorialActionMap;
+
+		public TutorialAction GetAction(TutorialActionId id)
+		{
+			TutorialAction action = null;
+
+			foreach (var item in tutorialActionMap)
+			{
+				if (item.id == id)
+				{
+					action = item.action;
+					break;
+				}
+			}
+
+			return action;
+		}
 	}
+
 }

@@ -61,8 +61,17 @@ namespace GGJ15.TheTutorial
 						Log.Info("DIRECTOR: INITALIZING STEP " + _currentTutorialStep);
 						_currentStep = _currentTutorialSteps[_currentTutorialStep];
 						_uiController.tutorialBubbleView.Show(_currentStep.text);
-						_timeStepStarted = Time.time;
 
+						foreach (var actionId in _currentStep.actions)
+						{
+							TutorialAction action = tutorialActionRegistry.GetAction(actionId);
+							if (action != null)
+							{
+								action.Activate();
+							}
+						}
+
+						_timeStepStarted = Time.time;
 					}
 
 					if (Time.time > _timeStepStarted + _currentStep.duration)
