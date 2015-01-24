@@ -4,5 +4,6 @@
 	{
 		None = 0,
 		SlowPushing = 1,
+		DoorArrows = 2,
 	}
 }

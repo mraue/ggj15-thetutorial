@@ -6,7 +6,7 @@ namespace GGJ15.TheTutorial
 {
 	public class TutorialAction : MonoBehaviour
 	{
-		public float Activate()
+		public virtual float Activate()
 		{
 			float duration = 0f;
 			return duration;

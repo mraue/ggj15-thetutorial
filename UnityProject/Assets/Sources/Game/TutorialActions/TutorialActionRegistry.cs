@@ -16,5 +16,3 @@ namespace GGJ15.TheTutorial
 		public List<TutorialActionPair> tutorialActionMap;
 	}
 }
-
-
