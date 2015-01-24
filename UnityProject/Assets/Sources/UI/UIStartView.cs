@@ -14,6 +14,7 @@ namespace GGJ15.TheTutorial
 		public void OnStart()
 		{
 			Hide();
+			GameContext.currentInstance.director.OnUIStart();
 		}
 
 		public void Hide()

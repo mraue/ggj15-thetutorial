@@ -6,8 +6,6 @@ namespace GGJ15.TheTutorial
 	{
 		public UIStartView startView;
 
-		public UIEndView endView;
-
 		void Awake()
 		{
 			GameContext.currentInstance.uiController = this;

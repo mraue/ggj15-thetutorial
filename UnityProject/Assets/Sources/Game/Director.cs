@@ -5,6 +5,8 @@ namespace GGJ15.TheTutorial
 {
 	public class Director : MonoBehaviour
 	{	
+		UIController _uiController;
+		PlayerController _playerController;
 
 		void Awake()
 		{
@@ -14,12 +16,17 @@ namespace GGJ15.TheTutorial
 
 		void Start()
 		{
-			GameContext.currentInstance.uiController.startView.Show();
+			_uiController = GameContext.currentInstance.uiController;
+			_playerController = GameContext.currentInstance.playerController;
 		}
 
 		public void CharacterReachedDoor()
 		{
-			Debug.Log("Director knows player is at exit");
+			_uiController.startView.Show();
+		}
+
+		public void OnUIStart()
+		{
 		}
 	}
 }
