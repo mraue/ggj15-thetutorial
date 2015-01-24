@@ -35,7 +35,7 @@ namespace GGJ15.TheTutorial
 							{
 								text = "PRESS D TO MOVE LEFT",
 								duration = 2f,
-								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+								actions = new List<TutorialActionId> { TutorialActionId.SlowyPushyAction }
 							}
 						},
 						{ 

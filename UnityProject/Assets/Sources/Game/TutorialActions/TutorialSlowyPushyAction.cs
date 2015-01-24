@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace GGJ15.TheTutorial
 {
-	public class TutorialSlowBlockPusherAction : TutorialAction {
+	public class TutorialSlowyPushyAction : TutorialAction {
 
 		Animation _animation;
 		

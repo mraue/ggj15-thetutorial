@@ -3,7 +3,7 @@
 	public enum TutorialActionId
 	{
 		None = 0,
-		SlowPushing = 1,
+		SlowyPushyAction = 1,
 		DoorArrows = 2,
 	}
 }
