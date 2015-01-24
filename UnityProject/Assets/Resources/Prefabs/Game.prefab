@@ -502,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   startPos: {fileID: 108792}
+  playerSprite: {fileID: 142970}
 --- !u!212 &21213090
 SpriteRenderer:
   m_ObjectHideFlags: 1
