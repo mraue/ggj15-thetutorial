@@ -5,6 +5,8 @@ namespace GGJ15.TheTutorial
 {
 	public class Director : MonoBehaviour
 	{	
+		public TutorialActionRegistry tutorialActionRegistry;
+
 		UIController _uiController;
 		PlayerController _playerController;
 
