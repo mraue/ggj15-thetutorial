@@ -11,5 +11,9 @@ namespace GGJ15.TheTutorial
 			float duration = 0f;
 			return duration;
 		}
+
+		public virtual void ResetStep() {}
+
+		public virtual void ResetLevel() {}
 	}	
 }

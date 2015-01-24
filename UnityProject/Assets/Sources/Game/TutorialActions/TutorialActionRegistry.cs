@@ -30,6 +30,22 @@ namespace GGJ15.TheTutorial
 
 			return action;
 		}
-	}
 
+		public void ResetStep()
+		{
+			foreach (var item in tutorialActionMap)
+			{
+				item.action.ResetStep();
+			}
+		}
+
+		public void ResetLevel()
+		{
+			foreach (var item in tutorialActionMap)
+			{
+				item.action.ResetLevel();
+			}
+		}
+
+	}
 }

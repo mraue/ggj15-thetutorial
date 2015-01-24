@@ -14,9 +14,16 @@ namespace GGJ15.TheTutorial
 		public override float Activate()
 		{
 			Log.Info("TUTORIAL ACTION DOOR ARROWS : ACTIVATE !!!!");
+			gameObject.SetActive(true);
 			float duration = 0f;
 			_animation.CrossFade("DoorArrowsActivate");
 			return duration;
+		}
+
+		public override void ResetLevel()
+		{
+			gameObject.SetActive(false);
+			Log.Info("TUTORIAL ACTION DOOR ARROWS : RESET LEVEL");
 		}
 	}	
 }

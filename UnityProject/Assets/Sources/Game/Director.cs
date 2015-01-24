@@ -59,6 +59,7 @@ namespace GGJ15.TheTutorial
 					if (_currentStep == null)
 					{
 						Log.Info("DIRECTOR: INITALIZING STEP " + _currentTutorialStep);
+						tutorialActionRegistry.ResetStep();
 						_currentStep = _currentTutorialSteps[_currentTutorialStep];
 						_uiController.tutorialBubbleView.Show(_currentStep.text);
 
@@ -83,6 +84,7 @@ namespace GGJ15.TheTutorial
 				}
 				else
 				{
+					Log.Info("DIRECTOR: TUTORIAL FINISHED " + _currentTutorialLevel);
 					_tutorialIsActive = false;
 				}
 			}
@@ -90,10 +92,15 @@ namespace GGJ15.TheTutorial
 
 		public void CharacterReachedDoor()
 		{
-			GameContext.currentInstance.uiController.tutorialBubbleView.Hide();
-
 			_uiController.startView.Show();
+			CleanupLevel();
+		}
+
+		void CleanupLevel()
+		{
+			GameContext.currentInstance.uiController.tutorialBubbleView.Hide();
 			_playerController.setMovement(false);
+			tutorialActionRegistry.ResetLevel();
 		}
 
 		public void OnUIStart()
