@@ -16,13 +16,13 @@ namespace GGJ15.TheTutorial
 					{
 						new TutorialStep
 						{
-							text = "Yeah, we did it",
-							duration = 10f,
+							text = "Lesson 1: Movement",
+							duration = 2f,
 							actions = new List<TutorialActionId> { }
 						},
 						new TutorialStep
 						{
-							text = "Totally dude",
+							text = "Press D to move left",
 							duration = 2f,
 							actions = new List<TutorialActionId> { }
 						}
@@ -33,11 +33,20 @@ namespace GGJ15.TheTutorial
 							GameEventId.ReachedLeftCollider,
 							new TutorialStep
 							{
-								text = "Totally dude",
+								text = "PRESS D TO MOVE LEFT",
 								duration = 2f,
 								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
 							}
-						}
+						},
+						{ 
+							GameEventId.PassedCenter,
+							new TutorialStep
+							{
+								text = "AWESOME JOB! KEEP GOING",
+								duration = 2f,
+								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+							}
+						},
 					}
 				}
 			};

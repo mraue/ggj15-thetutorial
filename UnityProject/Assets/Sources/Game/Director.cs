@@ -97,7 +97,7 @@ namespace GGJ15.TheTutorial
 			_timeStepStarted = Time.time;
 		}
 
-		public void CharacterReachedDoor()
+		public void EndGame()
 		{
 			_uiController.startView.Show();
 			_uiController.moneyHUDView.AddAmount(Random.Range(10000 * (_currentLevel + 1), 100000 * (_currentLevel + 1)));
@@ -136,7 +136,19 @@ namespace GGJ15.TheTutorial
 					_currentStep = step;
 					StartCurrentStep();
 				}
+
+				if (id == GameEventId.PlayerReachedExit)
+				{
+					float delay = step != null ? step.duration : 0f;
+					StartCoroutine(EndGameAfterDelay(delay));
+				}
 			}
+		}
+
+		IEnumerator EndGameAfterDelay(float delay)
+		{
+			yield return new WaitForSeconds(delay);
+			EndGame();
 		}
 	}
 }

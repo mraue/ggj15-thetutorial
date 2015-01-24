@@ -9,6 +9,6 @@ namespace GGJ15.TheTutorial
 		PassedCenter = 2,
 		PlayerIdledShort = 3,
 		PlayerIdledLong = 4,
+		PlayerReachedExit = 5,
 	}
 }
-

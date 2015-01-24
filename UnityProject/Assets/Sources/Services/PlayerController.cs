@@ -45,21 +45,12 @@ namespace GGJ15.TheTutorial
 			}
 		}
 		
-		void OnTriggerEnter2D (Collider2D other) {
-			//Debug.Log ("hello");
-			
-			rigidbody2D.velocity = new Vector2(0, 0);
-			GameContext.currentInstance.director.CharacterReachedDoor();
-		}
-		
 		void OnTriggerExit2D (Collider2D other) {
 			//Debug.Log ("goodbye");
 		}
 
 		public void setMovement(bool val){
 			allowMovement = val;
-		}
-
-
+		}			
 	}
 }
