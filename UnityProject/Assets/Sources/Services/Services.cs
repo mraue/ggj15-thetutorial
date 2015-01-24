@@ -14,6 +14,15 @@ namespace GGJ15.TheTutorial
 		}
 		static Services _currentInstance;
 
+		public AudioService audioService
+		{
+			get
+			{
+				return _audioService;
+			}
+		}
+		AudioService _audioService;
+
 
 		void Awake()
 		{
@@ -25,6 +34,8 @@ namespace GGJ15.TheTutorial
 			{
 				GGJ15.TheTutorial.Log.Error("SERVICE : CURRENT INSTANCE IS ALREADY SET");
 			}
+
+			_audioService = GetComponentInChildren<AudioService>();
 		}
 	}
 }

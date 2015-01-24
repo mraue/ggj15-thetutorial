@@ -8,16 +8,8 @@ namespace GGJ15.TheTutorial
 	{
 		public AudioRegistry audioRegistry;
 
-		bool _musicEnabled = false;
-		bool _soundEnabled = false;
-
 		public void Play(AudioId audioId)
 		{
-			if(!_soundEnabled)
-			{
-				return;
-			}
-
 			// Not using a dictionary for now, so the sound can easily be exchanged in the editor
 			for(int i=0; i<audioRegistry.audioMap.Count; i++)
 			{
@@ -36,12 +28,6 @@ namespace GGJ15.TheTutorial
 					break;
 				}
 			}
-		}
-
-		public void SetUserPreferences(bool musicEnabled, bool soundEnabled)
-		{
-			_musicEnabled = musicEnabled;
-			_soundEnabled = soundEnabled;
 		}
 	}
 }

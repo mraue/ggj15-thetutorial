@@ -13,6 +13,7 @@ namespace GGJ15.TheTutorial
 
 		public void OnStart()
 		{
+			Services.currentInstance.audioService.Play(AudioId.ButtonClick);
 			Application.LoadLevel(MAIN_SCENE);
 		}
 	}
