@@ -21,10 +21,13 @@ namespace GGJ15.TheTutorial
 			_uiController = GameContext.currentInstance.uiController;
 			_playerController = GameContext.currentInstance.playerController;
 			_playerController.spawnPlayer();
+			GameContext.currentInstance.uiController.tutorialBubbleView.Show("MOVE RIGHT");
 		}
 
 		public void CharacterReachedDoor()
 		{
+			GameContext.currentInstance.uiController.tutorialBubbleView.Hide();
+
 			_uiController.startView.Show();
 			_playerController.setMovement(false);
 		}

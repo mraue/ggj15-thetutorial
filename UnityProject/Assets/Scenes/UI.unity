@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLabel: {fileID: 372729346}
+  backgroundImage: {fileID: 1669572012}
 --- !u!1 &1772320905
 GameObject:
   m_ObjectHideFlags: 0
