@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioRegistry: {fileID: 2084633656}
+  backgroundMusicPlayer: {fileID: 0}
 --- !u!114 &1963066379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1072,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2016063483}
   - 82: {fileID: 2016063482}
+  - 114: {fileID: 2016063484}
   m_Layer: 0
   m_Name: BackgroundMusicPlayer
   m_TagString: Untagged
@@ -1086,11 +1088,11 @@ AudioSource:
   m_GameObject: {fileID: 2016063481}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3a44143e7b95743f28f237438978ff83, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -1148,6 +1150,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &2016063484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016063481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38534160ee07b46e5ab886e6de2bbdc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2084633655
 GameObject:
   m_ObjectHideFlags: 0

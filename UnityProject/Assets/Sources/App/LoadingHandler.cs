@@ -7,14 +7,15 @@ namespace GGJ15.TheTutorial
 	{
 		public const string MAIN_SCENE = "Main";
 
-		void Start()
-		{
-		}
-
 		public void OnStart()
 		{
-			Services.currentInstance.audioService.PlayMusic(AudioId.MainTheme);
 			Services.currentInstance.audioService.PlaySound(AudioId.ButtonClick);
+			StartCoroutine(LoadMainSceneDelayed(0.4f));
+		}
+
+		IEnumerator LoadMainSceneDelayed(float delay)
+		{
+			yield return new WaitForSeconds(delay);
 			Application.LoadLevel(MAIN_SCENE);
 		}
 	}
