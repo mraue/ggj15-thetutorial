@@ -6,6 +6,8 @@ namespace GGJ15.TheTutorial
 	{
 		public UIStartView startView;
 		public UITutorialBubble tutorialBubbleView;
+		public UIMoneyHUDView moneyHUDView;
+
 
 		void Awake()
 		{
