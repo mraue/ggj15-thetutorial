@@ -44,6 +44,50 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: c45287dafcf1345ffaeb12a515f7e14c, type: 3}
   - audioId: 2
     audioClip: {fileID: 8300000, guid: 3a44143e7b95743f28f237438978ff83, type: 3}
+  - audioId: 3
+    audioClip: {fileID: 8300000, guid: 85b491a961d1243cda3dce014112288e, type: 3}
+  - audioId: 4
+    audioClip: {fileID: 8300000, guid: d2d5db66cf2f5459f9591afec0969064, type: 3}
+  - audioId: 5
+    audioClip: {fileID: 8300000, guid: 10d27904c86e643668f6b1b3de16266a, type: 3}
+  - audioId: 6
+    audioClip: {fileID: 8300000, guid: d729ae4fe44ef4c19821a912a57f28cf, type: 3}
+  - audioId: 7
+    audioClip: {fileID: 8300000, guid: d19b79347bc3b43ceb8d804fab1f36d6, type: 3}
+  - audioId: 8
+    audioClip: {fileID: 8300000, guid: 28f45549ebab24ddfa56bbe33aff7be7, type: 3}
+  - audioId: 9
+    audioClip: {fileID: 8300000, guid: 1ccf36ee5f8304fde8462e53d33a3dd1, type: 3}
+  - audioId: 10
+    audioClip: {fileID: 8300000, guid: 57cc720db002c471e8f09041b1163664, type: 3}
+  - audioId: 22
+    audioClip: {fileID: 8300000, guid: 4698e1f2e329e407b88690f4321d57c8, type: 3}
+  - audioId: 23
+    audioClip: {fileID: 8300000, guid: 84889560179d942a3a8cadfe0a8b19c2, type: 3}
+  - audioId: 24
+    audioClip: {fileID: 8300000, guid: e7a86d7bb78b84e56800ae96f462ca29, type: 3}
+  - audioId: 11
+    audioClip: {fileID: 8300000, guid: 743444c2e6cc9470aa86b4e715c474ae, type: 3}
+  - audioId: 12
+    audioClip: {fileID: 8300000, guid: 8cd5bab4796f64e35a87b65e76f283f3, type: 3}
+  - audioId: 13
+    audioClip: {fileID: 8300000, guid: d205669e8c3f6443a8759e3b88613528, type: 3}
+  - audioId: 14
+    audioClip: {fileID: 8300000, guid: a7d7e44f8764749f7bbd0f13c088c253, type: 3}
+  - audioId: 15
+    audioClip: {fileID: 8300000, guid: 2abf2a16947d64674b1dd2b25ca29a22, type: 3}
+  - audioId: 16
+    audioClip: {fileID: 8300000, guid: 405716aa8df4d4329947537cc9cea216, type: 3}
+  - audioId: 17
+    audioClip: {fileID: 8300000, guid: 9e4827dfc3fd0463db76ae921ccbf27d, type: 3}
+  - audioId: 18
+    audioClip: {fileID: 8300000, guid: 66ca388a477f34970aa5cf8f3c599921, type: 3}
+  - audioId: 19
+    audioClip: {fileID: 8300000, guid: d1f755eb308084dcdaa7a93f21f1be53, type: 3}
+  - audioId: 20
+    audioClip: {fileID: 8300000, guid: 702c5b619fbc344fc91843f3cb267f36, type: 3}
+  - audioId: 21
+    audioClip: {fileID: 8300000, guid: 581fa75da86f64e9db059663e52f0945, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
