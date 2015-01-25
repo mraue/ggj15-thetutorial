@@ -7,8 +7,7 @@ using DG.Tweening;
 namespace GGJ15.TheTutorial
 {
 	public class UIStartView : MonoBehaviour
-	{
-
+	{	
 		public Image backgroundImage;
 
 		public List<AnimationClip> animationList;
@@ -16,7 +15,7 @@ namespace GGJ15.TheTutorial
 		Animation _animation;
 		int _levelMax;
 		public Text congratsLabel;
-
+		AudioId[] _cheerSounds = new AudioId[] { AudioId.Cheer2, AudioId.Cheer3, AudioId.Cheer4, AudioId.Cheer5, AudioId.Cheer6, AudioId.Cheer7 };
 
 		void Awake()
 		{
@@ -25,6 +24,7 @@ namespace GGJ15.TheTutorial
 
 		public void OnStart()
 		{
+			Services.currentInstance.audioService.PlaySound(AudioId.ButtonContinueClick);
 			Hide(false);
 			GameContext.currentInstance.director.OnUIStart();
 		}

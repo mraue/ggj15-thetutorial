@@ -201,6 +201,7 @@ namespace GGJ15.TheTutorial
 				if (id == GameEventId.PlayerReachedExit)
 				{
 					_gameHasEnded = true;
+					GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.Cheer1);
 					StartCoroutine(EndGameAfterDelay(delay));
 				}
 			}

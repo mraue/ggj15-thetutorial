@@ -17,6 +17,7 @@ namespace GGJ15.TheTutorial
 
 		public void AddAmount(int amount)
 		{
+			Services.currentInstance.audioService.PlaySound(AudioId.CoinsReceived);
 			_startAmount = _finalAmount;
 			_finalAmount = _startAmount + amount;
 			_animateStart = Time.time;

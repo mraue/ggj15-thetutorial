@@ -7,7 +7,9 @@ public class UITutorialBubble : MonoBehaviour {
 
 	public Text textLabel;
 	public Image backgroundImage;
-	
+
+	Tweener _textTweener;
+
 	void Start () {
 		Hide(false);
 
@@ -15,12 +17,17 @@ public class UITutorialBubble : MonoBehaviour {
 
 	public void SetText(string value){
 		const float ONE_LETTER_DURATION = 0.05f;
-		DOTween.Kill (textLabel);
+		if (_textTweener != null)
+		{
+			_textTweener.Kill();
+		}
 		textLabel.text = "";
-		DOTween.To(()=>textLabel.text, x=>textLabel.text = x, value, ONE_LETTER_DURATION * value.Length); 
+		_textTweener = DOTween.To(()=>textLabel.text, x=>textLabel.text = x, value, ONE_LETTER_DURATION * value.Length); 
 	}
 
 	public void Show(string value){
+
+		GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.TutorialPopup);
 
 		float animationTime = 0.2f;
 
