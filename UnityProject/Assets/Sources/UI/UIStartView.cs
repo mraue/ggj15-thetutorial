@@ -34,7 +34,7 @@ namespace GGJ15.TheTutorial
 
 		public void StartAnimation(int level)
 		{
-			//Camera.main.GetComponent<CameraShake>().DoShake();
+			Camera.main.GetComponent<CameraShake>().DoShake();
 			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
 			foreach(var obj in animationObjects)
 				obj.Disable ();
@@ -81,9 +81,6 @@ namespace GGJ15.TheTutorial
 				congratsLabel.text = congratsOptions[0];
 			else
 				congratsLabel.text = congratsOptions[Random.Range(0,congratsOptions.Length)];
-
-
-
 
 
 
