@@ -21,7 +21,6 @@ namespace GGJ15.TheTutorial
 
 		TutorialStep _currentStep;
 		float _timeStepStarted;
-		bool _tutorialIsActive;
 
 		Dictionary<GameEventId, int> _eventCounter = new Dictionary<GameEventId, int>();
 		List<TutorialEventStep> _preventStep = new List<TutorialEventStep>();
@@ -57,36 +56,26 @@ namespace GGJ15.TheTutorial
 				_preventStep.Clear();
 				_currentStep = null;
 
-				_tutorialIsActive = true;
-
 				_gameHasEnded = false;
 			}
 		}
 
-		void FixedUpdate()
+		void Update()
 		{
-			if (_tutorialIsActive)
+			if (_steps.Count > 0)
 			{
-				if (_steps.Count > 0)
+				if (_currentStep == null)
 				{
-					if (_currentStep == null)
-					{
-						Log.Info("DIRECTOR: INITALIZING NEXT STEP");
-						_currentStep = _steps[0];
-						_steps.RemoveAt(0);
-						StartCurrentStep();
-					}
-
-					if (Time.fixedTime > _timeStepStarted + _currentStep.duration)
-					{
-						_currentStep = null;
-						Log.Info("DIRECTOR: MOVING TO NEXT STEP");
-					}
+					Log.Info("DIRECTOR: INITALIZING NEXT STEP");
+					_currentStep = _steps[0];
+					_steps.RemoveAt(0);
+					StartCurrentStep();
 				}
-				else
+
+				if (Time.time > _timeStepStarted + _currentStep.duration)
 				{
-					Log.Info("DIRECTOR: TUTORIAL FINISHED " + _currentTutorialLevel);
-					_tutorialIsActive = false;
+					_currentStep = null;
+					Log.Info("DIRECTOR: MOVING TO NEXT STEP");
 				}
 			}
 		}
@@ -209,7 +198,7 @@ namespace GGJ15.TheTutorial
 			}
 
 			if (id == GameEventId.PlayerReachedExit
-				&& !hasSteps)
+			    && !hasSteps)
 			{
 				_steps.Clear();
 			}
