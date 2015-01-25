@@ -15,6 +15,7 @@ public class UITutorialBubble : MonoBehaviour {
 
 	public void SetText(string value){
 		const float ONE_LETTER_DURATION = 0.05f;
+		DOTween.Kill (textLabel);
 		textLabel.text = "";
 		DOTween.To(()=>textLabel.text, x=>textLabel.text = x, value, ONE_LETTER_DURATION * value.Length); 
 	}

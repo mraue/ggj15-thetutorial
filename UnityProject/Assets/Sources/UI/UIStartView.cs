@@ -29,7 +29,7 @@ namespace GGJ15.TheTutorial
 
 		public void StartAnimation(int level)
 		{
-
+			//Camera.main.GetComponent<CameraShake>().DoShake();
 			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
 			foreach(var obj in animationObjects)
 				obj.Disable ();

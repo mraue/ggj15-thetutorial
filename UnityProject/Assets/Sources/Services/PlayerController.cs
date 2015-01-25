@@ -6,19 +6,21 @@ namespace GGJ15.TheTutorial
 {
 	public class PlayerController : MonoBehaviour {
 
-		public float speed = 5f;
+		public float speed = 6f;
 		public GameObject startPos;
 
 		public GameObject playerSprite;
 
 		bool allowMovement = false;
-		//bool directionRight = true;
+
+		Vector3 initScale;
 
 		// Use this for initialization
 		void Start () {
 		}
 		
 		void Awake(){
+			initScale = playerSprite.transform.localScale;
 			initPlayer();
 			GameContext.currentInstance.playerController = this;
 		}
@@ -42,6 +44,14 @@ namespace GGJ15.TheTutorial
 			if (allowMovement){
 				float move = Input.GetAxis ("Horizontal");
 				rigidbody2D.velocity = new Vector2(move * speed, rigidbody2D.velocity.y);
+
+
+				bool Walking = Mathf.Abs(move) > 0.1f;
+				playerSprite.GetComponent<Animator>().SetBool("Walking",Walking);
+				if (rigidbody2D.velocity.x < 0)
+					playerSprite.transform.localScale = new Vector3(-initScale.x,initScale.y,initScale.z);
+				else
+					playerSprite.transform.localScale = initScale;
 			}
 		}
 		
