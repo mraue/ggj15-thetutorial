@@ -211,7 +211,6 @@ namespace GGJ15.TheTutorial
 			if (id == GameEventId.PlayerReachedExit
 				&& !hasSteps)
 			{
-				Log.Info("///////////////////////// AAA");
 				_steps.Clear();
 			}
 				
