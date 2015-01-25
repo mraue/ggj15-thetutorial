@@ -7,14 +7,15 @@ using DG.Tweening;
 namespace GGJ15.TheTutorial
 {
 	public class UIStartView : MonoBehaviour
-	{
-
+	{	
 		public Image backgroundImage;
 
 		public List<AnimationClip> animationList;
 		int _animationIndex = 0;
 		Animation _animation;
 		int _levelMax;
+			
+		AudioId[] _cheerSounds = new AudioId[] { AudioId.Cheer2, AudioId.Cheer3, AudioId.Cheer4, AudioId.Cheer5, AudioId.Cheer6, AudioId.Cheer7 };
 
 		void Awake()
 		{
