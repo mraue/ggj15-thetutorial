@@ -29,6 +29,11 @@ namespace GGJ15.TheTutorial
 
 		public void StartAnimation(int level)
 		{
+
+			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
+			foreach(var obj in animationObjects)
+				obj.Disable ();
+
 			Debug.Log("StartAnimation");
 			_animationIndex = 0;
 			_animation.Play (animationList[_animationIndex].name);
@@ -45,7 +50,6 @@ namespace GGJ15.TheTutorial
 				Debug.Log ("UIStartView:Update - Play animation "+animationList[_animationIndex].name);
 				_animation.Play (animationList[_animationIndex].name);
 			}
-
 		}
 
 		public void Show()
