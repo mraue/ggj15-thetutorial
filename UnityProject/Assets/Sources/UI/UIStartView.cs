@@ -48,7 +48,7 @@ namespace GGJ15.TheTutorial
 			_animation.Play (animationList[_animationIndex].name);
 			_animationIndex = 1;
 			_animation.Play (animationList[_animationIndex].name);
-			_levelMax = level;
+			_levelMax = Mathf.Min(level, animationList.Count-1);
 
 			string[] congratsOptions=new string[]{
 				"Congratulations!",
@@ -92,7 +92,7 @@ namespace GGJ15.TheTutorial
 
 		void Update()
 		{
-			if(!_animation.isPlaying && _animationIndex <= _levelMax){
+			if(!_animation.isPlaying && _animationIndex < _levelMax){
 				_animationIndex++;
 				Debug.Log ("UIStartView:Update - Play animation "+animationList[_animationIndex].name);
 				_animation.Play (animationList[_animationIndex].name);
