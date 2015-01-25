@@ -152,7 +152,7 @@ namespace GGJ15.TheTutorial
 		{
 			Log.Info("DIRECTOR: GAME EVENT TRIGGERED " + id);
 
-			if ( _gameHasEnded)
+			if (_gameHasEnded)
 			{
 				Log.Info("DIRECTOR: IGNORING EVENT");
 				return;
@@ -161,6 +161,9 @@ namespace GGJ15.TheTutorial
 			int currentEventCount = 0;
 			_eventCounter.TryGetValue(id, out currentEventCount);
 
+			float delay = 0f;
+			bool hasSteps = false;
+
 			if (_eventSteps != null)
 			{
 				List<TutorialEventStep> eventSteps = new List<TutorialEventStep>();
@@ -168,7 +171,7 @@ namespace GGJ15.TheTutorial
 				foreach (var step in _eventSteps)
 				{
 					if (!_preventStep.Contains(step)
-						&& step.eventId == id
+					    && step.eventId == id
 					    && currentEventCount >= step.eventCount)
 					{
 						eventSteps.Add(step);
@@ -178,9 +181,7 @@ namespace GGJ15.TheTutorial
 							_preventStep.Add(step);
 						}
 					}
-				}					
-
-				float delay = 0f;
+				}										
 
 				if (eventSteps.Count > 0)
 				{
@@ -201,16 +202,25 @@ namespace GGJ15.TheTutorial
 						_steps.Insert(0, step);
 						delay += step.duration;
 					}
-				}
 
-				if (id == GameEventId.PlayerReachedExit)
-				{
-					_gameHasEnded = true;
-					Services.currentInstance.audioService.PlaySound(AudioId.Cheer1);
-					StartCoroutine(EndGameAfterDelay(delay));
+					hasSteps = true;
 				}
 			}
+
+			if (id == GameEventId.PlayerReachedExit
+				&& !hasSteps)
+			{
+				Log.Info("///////////////////////// AAA");
+				_steps.Clear();
+			}
 				
+			if (id == GameEventId.PlayerReachedExit)
+			{
+				_gameHasEnded = true;
+				Services.currentInstance.audioService.PlaySound(AudioId.Cheer1);
+				StartCoroutine(EndGameAfterDelay(delay));
+			}
+
 			_eventCounter[id] = currentEventCount + 1;
 		}
 

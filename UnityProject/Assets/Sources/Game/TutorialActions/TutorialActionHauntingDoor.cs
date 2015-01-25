@@ -9,8 +9,14 @@ namespace GGJ15.TheTutorial
 
 		const float _maxSpeed = 0.5f;
 		float _currentSpeed = 0f;
+		Vector3 _startingPos;
 
 		bool _isActive;
+
+		void Start()
+		{
+			_startingPos = theDoor.transform.position;
+		}
 
 		public override float Activate()
 		{
@@ -23,6 +29,7 @@ namespace GGJ15.TheTutorial
 		public override void ResetLevel()
 		{
 			Log.Info("TUTORIAL HAUNTING DOOR : RESET LEVEL");
+			theDoor.transform.position = _startingPos;
 			_isActive = false;
 		}
 
