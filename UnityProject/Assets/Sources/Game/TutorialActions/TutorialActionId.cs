@@ -8,5 +8,6 @@
 		HauntingDoor = 3,
 		DoorGrows = 4,
 		NightIsFalling = 5,
+		RemoveDoor = 6,
 	}
 }

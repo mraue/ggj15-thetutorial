@@ -4,8 +4,6 @@ namespace GGJ15.TheTutorial
 {
 	public partial class TutorialStepLists
 	{
-
-		// LEVEL 1
 		TutorialLevel _level1 = new TutorialLevel
 		{
 			steps = new List<TutorialStep>
