@@ -63,6 +63,8 @@ namespace GGJ15.TheTutorial
 			allowMovement = val;
 			if  (!val)
 				rigidbody2D.velocity = Vector2.zero;
+			if(!val)
+				playerSprite.GetComponent<Animator>().SetBool("Walking",false);
 		}			
 	}
 }
