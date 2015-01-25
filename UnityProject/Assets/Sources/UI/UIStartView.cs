@@ -14,8 +14,10 @@ namespace GGJ15.TheTutorial
 		int _animationIndex = 0;
 		Animation _animation;
 		int _levelMax;
+
 		public Text congratsLabel;
-		AudioId[] _cheerSounds = new AudioId[] { AudioId.Cheer2, AudioId.Cheer3, AudioId.Cheer4, AudioId.Cheer5, AudioId.Cheer6, AudioId.Cheer7 };
+
+		AudioId[] _cheerSounds = new AudioId[] { AudioId.Cheer2, AudioId.Cheer3, AudioId.Cheer4, AudioId.Cheer5, AudioId.Cheer6, AudioId.Cheer7, AudioId.Cheer8, AudioId.Cheer9, AudioId.Cheer10 };
 
 		void Awake()
 		{
@@ -25,6 +27,7 @@ namespace GGJ15.TheTutorial
 		public void OnStart()
 		{
 			Services.currentInstance.audioService.PlaySound(AudioId.ButtonContinueClick);
+
 			Hide(false);
 			GameContext.currentInstance.director.OnUIStart();
 		}
@@ -99,7 +102,10 @@ namespace GGJ15.TheTutorial
 		{
 			//	_animation.CrossFade("Show");
 			
-			
+
+			AudioId cheerEffect = _cheerSounds[Random.Range(0, _cheerSounds.Length)];
+			Services.currentInstance.audioService.PlaySound(cheerEffect);
+
 			float animationTime = 0.2f;
 			
 			backgroundImage.color = Color.clear;
