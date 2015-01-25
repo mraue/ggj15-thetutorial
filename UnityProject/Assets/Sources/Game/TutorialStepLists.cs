@@ -164,7 +164,8 @@ namespace GGJ15.TheTutorial
 								text = "YOU ARE THE BEST!!",
 								duration = 1f,
 								actions = new List<TutorialActionId> { },
-								blockPlayerMovement = true
+								blockPlayerMovement = true,
+								continuesTutorial = true,
 							}
 						},
 						{
