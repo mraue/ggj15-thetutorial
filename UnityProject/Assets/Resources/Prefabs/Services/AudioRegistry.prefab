@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMap:
   - audioId: 1
-    audioClip: {fileID: 8300000, guid: c45287dafcf1345ffaeb12a515f7e14c, type: 3}
+    audioClip: {fileID: 8300000, guid: d729ae4fe44ef4c19821a912a57f28cf, type: 3}
   - audioId: 2
     audioClip: {fileID: 8300000, guid: 3a44143e7b95743f28f237438978ff83, type: 3}
   - audioId: 3
