@@ -31,19 +31,19 @@ namespace GGJ15.TheTutorial
 				new TutorialStep
 				{
 					text = ".. a quest for answers?",
-					duration = 4f,
+					duration = 3f,
 					actions = new List<TutorialActionId> { }
 				},
 				new TutorialStep
 				{
 					text = "Question.",
-					duration = 4f,
+					duration = 2f,
 					actions = new List<TutorialActionId> { }
 				},
 				new TutorialStep
 				{
 					text = "That's right.",
-					duration = 12f,
+					duration = 10f,
 					actions = new List<TutorialActionId> { }
 				},
 				new TutorialStep
@@ -72,7 +72,7 @@ namespace GGJ15.TheTutorial
 					{
 						eventId = GameEventId.ReachedLeftCollider,
 						text = "I thought we talked about this ...",
-						duration = 2f,
+						duration = 15f,
 						actions = new List<TutorialActionId> { TutorialActionId.DoorGrows },
 						continuesTutorial = true,
 						eventCount = 1,
