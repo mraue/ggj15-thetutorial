@@ -27,7 +27,7 @@ public class UITutorialBubble : MonoBehaviour {
 
 	public void Show(string value){
 
-//		GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.TutorialPopup);
+		GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.TutorialPopup);
 
 		float animationTime = 0.2f;
 
