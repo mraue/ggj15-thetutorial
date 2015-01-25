@@ -77,7 +77,7 @@ namespace GGJ15.TheTutorial
 						StartCurrentStep();
 					}
 
-					if (Time.time > _timeStepStarted + _currentStep.duration)
+					if (Time.fixedTime > _timeStepStarted + _currentStep.duration)
 					{
 						_currentStep = null;
 						Log.Info("DIRECTOR: MOVING TO NEXT STEP");

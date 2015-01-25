@@ -17,7 +17,7 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "..",
+					text = "...",
 					duration = 2f,
 					actions = new List<TutorialActionId> { TutorialActionId.RemoveDoor }
 				}
