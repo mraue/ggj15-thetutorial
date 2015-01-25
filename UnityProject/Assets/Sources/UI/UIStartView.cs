@@ -23,6 +23,7 @@ namespace GGJ15.TheTutorial
 
 		public void OnStart()
 		{
+			Services.currentInstance.audioService.PlaySound(AudioId.ButtonContinueClick);
 			Hide(false);
 			GameContext.currentInstance.director.OnUIStart();
 		}

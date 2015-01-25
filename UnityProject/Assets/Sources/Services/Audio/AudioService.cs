@@ -1,13 +1,11 @@
 using System;
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace GGJ15.TheTutorial
 {
 	public class AudioService : MonoBehaviour
 	{
 		public AudioRegistry audioRegistry;
-		public BackgroundMusicPlayer backgroundMusicPlayer;
 
 		public void PlaySound(AudioId audioId)
 		{

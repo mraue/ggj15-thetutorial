@@ -7,7 +7,7 @@ public class UITutorialBubble : MonoBehaviour {
 
 	public Text textLabel;
 	public Image backgroundImage;
-	
+
 	void Start () {
 		Hide(false);
 
@@ -21,6 +21,8 @@ public class UITutorialBubble : MonoBehaviour {
 	}
 
 	public void Show(string value){
+
+		GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.TutorialPopup);
 
 		float animationTime = 0.2f;
 
