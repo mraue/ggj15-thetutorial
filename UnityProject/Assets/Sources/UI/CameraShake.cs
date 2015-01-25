@@ -13,10 +13,12 @@ namespace GGJ15.TheTutorial
 		private float ShakeIntensity;    
 		private Vector3 OriginalPos;
 		private Quaternion OriginalRot;
+		public bool isActive;
 
 		void Start ()
 		{
 			Shaking = false;    
+			isActive = true;
 		}
 
 
@@ -38,12 +40,15 @@ namespace GGJ15.TheTutorial
 
 		public void DoShake ()
 		{
-			OriginalPos = transform.position;
-			OriginalRot = transform.rotation;
+			if (isActive)
+			{
+				OriginalPos = transform.position;
+				OriginalRot = transform.rotation;
 
-			ShakeIntensity = 0.3f;
-			ShakeDecay = 0.02f;
-			Shaking = true;
+				ShakeIntensity = 0.15f;
+				ShakeDecay = 0.01f;
+				Shaking = true;
+			}
 		}
 	}
 }

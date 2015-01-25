@@ -21,6 +21,7 @@ namespace GGJ15.TheTutorial
 		void Awake()
 		{
 			_animation = GetComponent<Animation>();
+			_animationIndex = int.MaxValue;
 		}
 
 		public void OnStart()
@@ -31,9 +32,13 @@ namespace GGJ15.TheTutorial
 			GameContext.currentInstance.director.OnUIStart();
 		}
 
-		public void StartAnimation(int level)
+		public void ActivateCameraShake()
 		{
 			Camera.main.GetComponent<CameraShake>().DoShake();
+		}
+
+		public void StartAnimation(int level)
+		{
 			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
 			foreach(var obj in animationObjects)
 				obj.Disable ();
@@ -51,9 +56,9 @@ namespace GGJ15.TheTutorial
 				"Mind Shattering!",
 				"Expectations Exceeded!",
 				"Fantastic!",
+				"Impressive!",
 				"Funtastic!",
 				"Superb Execution!",
-				"I cannot believe my eyes. If I had eyes.",
 				"Wow!",
 				"Hopefully someone else saw that!",
 				"History has been made!",
@@ -66,14 +71,14 @@ namespace GGJ15.TheTutorial
 				"Moves like Jäger",
 				"Moves like Jagger!",
 				"Fastest time yet!",
-				"Finally, a decent players!",
+				"Finally, a decent player!",
 				"Yours is the movement that will pierce the heavens!",
 				"Such Moves!",
 				"Bellissimo!",
 				"Fantastico!",
 				"Straordinario!",
 				"Incredible!",
-				"First Try! Wow!" 
+				"First Try! Wow!"
 			};
 
 			if (_levelMax == 0)

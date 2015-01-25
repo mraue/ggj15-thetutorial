@@ -38,7 +38,12 @@ namespace GGJ15.TheTutorial
 			setMovement(true);
 			playerSprite.GetComponent<SpriteRenderer>().DOColor(Color.white,0.5f);
 		}
-		
+
+		public void despawnPlayer(){
+			//rigidbody2d.isKinematic = false;
+			playerSprite.GetComponent<SpriteRenderer>().DOColor(Color.clear,0.5f);
+		}
+
 		// Update is called once per frame
 		void FixedUpdate () {
 			if (allowMovement){
