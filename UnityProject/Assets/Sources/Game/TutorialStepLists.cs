@@ -28,12 +28,12 @@ namespace GGJ15.TheTutorial
 							actions = new List<TutorialActionId> { }
 						}
 					},
-					eventSteps = new Dictionary<GameEventId, TutorialStep>
+					eventSteps = new List<TutorialEventStep>
 					{
 						{ 
-							GameEventId.ReachedLeftCollider,
-							new TutorialStep
+							new TutorialEventStep
 							{
+								eventId = GameEventId.ReachedLeftCollider,
 								text = "PRESS D TO MOVE LEFT",
 								duration = 2f,
 								actions = new List<TutorialActionId> { TutorialActionId.SlowyPushyAction },
@@ -41,18 +41,18 @@ namespace GGJ15.TheTutorial
 							}
 						},
 						{ 
-							GameEventId.PassedCenter,
-							new TutorialStep
+							new TutorialEventStep
 							{
+								eventId = GameEventId.PassedCenter,
 								text = "AWESOME JOB! KEEP GOING",
 								duration = 2f,
 								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
 							}
 						},
 						{ 
-							GameEventId.PlayerReachedExit,
-							new TutorialStep
+							new TutorialEventStep
 							{
+								eventId = GameEventId.PlayerReachedExit,
 								text = "YOU DID IT!!",
 								duration = 1f,
 								actions = new List<TutorialActionId> { },
@@ -61,57 +61,58 @@ namespace GGJ15.TheTutorial
 						},
 					}
 				},
-					new TutorialLevel
+				new TutorialLevel
+				{
+					steps = new List<TutorialStep>
 					{
-						steps = new List<TutorialStep>
-							{
-								new TutorialStep
-								{
-									text = "Lesson {n}: Movement",
-									duration = 2f,
-									actions = new List<TutorialActionId> { },
-									blockPlayerMovement = true
-								},
-								new TutorialStep
-								{
-									text = "Press right arrow to move right",
-									duration = 2f,
-									actions = new List<TutorialActionId> { }
-								}
-							},
-						eventSteps = new Dictionary<GameEventId, TutorialStep>
+						new TutorialStep
 						{
-							{ 
-								GameEventId.ReachedLeftCollider,
-								new TutorialStep
-								{
-									text = "I thought we talked about this ...",
-									duration = 2f,
-									actions = new List<TutorialActionId> { TutorialActionId.DoorGrows },
-									continuesTutorial = true,
-								}
-							},
-							{ 
-								GameEventId.PassedCenter,
-								new TutorialStep
-								{
-									text = "AWESOME JOB! KEEP GOING",
-									duration = 2f,
-									actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
-								}
-							},
-							{ 
-								GameEventId.PlayerReachedExit,
-								new TutorialStep
-								{
-									text = "YOU DID IT!!",
-									duration = 1f,
-									actions = new List<TutorialActionId> { },
-									blockPlayerMovement = true
-								}
-							},
+							text = "Lesson {n}: Movement",
+							duration = 2f,
+							actions = new List<TutorialActionId> { },
+							blockPlayerMovement = true
+						},
+						new TutorialStep
+						{
+							text = "Press right arrow to move right",
+							duration = 2f,
+							actions = new List<TutorialActionId> { }
 						}
+					},
+					eventSteps = new List<TutorialEventStep>
+					{
+						{ 
+							new TutorialEventStep
+							{
+								eventId = GameEventId.ReachedLeftCollider,
+								text = "I thought we talked about this ...",
+								duration = 2f,
+								actions = new List<TutorialActionId> { TutorialActionId.DoorGrows },
+								continuesTutorial = true,
+								eventCount = 2,
+							}
+						},
+						{ 
+							new TutorialEventStep
+							{
+								eventId = GameEventId.PassedCenter,
+								text = "AWESOME JOB! KEEP GOING",
+								duration = 2f,
+								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+							}
+						},
+						{ 
+							new TutorialEventStep
+							{
+								eventId = GameEventId.PlayerReachedExit,
+								text = "YOU DID IT!!",
+								duration = 1f,
+								actions = new List<TutorialActionId> { },
+								blockPlayerMovement = true
+							}
+						},
 					}
+				}
 			};
 		}
 	}

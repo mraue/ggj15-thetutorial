@@ -7,6 +7,6 @@ namespace GGJ15.TheTutorial
 	{
 		public List<TutorialStep> steps { get; set; }
 
-		public Dictionary<GameEventId, TutorialStep> eventSteps { get; set; }
+		public List<TutorialEventStep> eventSteps { get; set; }
 	}
 }

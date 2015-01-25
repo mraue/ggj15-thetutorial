@@ -5,25 +5,28 @@ using System.Collections.Generic;
 namespace GGJ15.TheTutorial
 {
 	public class Director : MonoBehaviour
-	{	
+	{
 		public TutorialActionRegistry tutorialActionRegistry;
 
 		UIController _uiController;
 		PlayerController _playerController;
 
 		int _currentLevel;
-
 		int _currentTutorialLevel;
-		int _currentTutorialStep;
+
 		TutorialStepLists _tutorialStepList = new TutorialStepLists();
-		float _timeStepStarted;
 
-		List<TutorialStep> _currentTutorialSteps;
-		Dictionary<GameEventId, TutorialStep> _currentTutorialEventSteps;
-
-		bool _tutorialIsActive;
+		List<TutorialStep> _steps = new List<TutorialStep>();
+		List<TutorialEventStep> _eventSteps;
 
 		TutorialStep _currentStep;
+		float _timeStepStarted;
+		bool _tutorialIsActive;
+
+		Dictionary<GameEventId, int> _eventCounter = new Dictionary<GameEventId, int>();
+		List<GameEventId> _preventEvents = new List<GameEventId>();
+
+		bool _gameHasEnded;
 
 		void Awake()
 		{
@@ -37,20 +40,26 @@ namespace GGJ15.TheTutorial
 			_playerController = GameContext.currentInstance.playerController;
 			_playerController.spawnPlayer();
 			GameContext.currentInstance.uiController.tutorialBubbleView.Show("MOVE RIGHT");
-			GameContext.currentInstance.uiController.startView.Hide (false);
+			GameContext.currentInstance.uiController.startView.Hide(false);
 			StartTutorial(_currentTutorialLevel);
 		}
 
-		void StartTutorial(int _currentTutorialLevel)
+		void StartTutorial(int currentTutorialLevel)
 		{
-			if (_currentTutorialLevel < _tutorialStepList.levels.Count)
+			if (currentTutorialLevel < _tutorialStepList.levels.Count)
 			{
-				Log.Info("DIRECTOR: STARTING TUTORIAL " + _currentTutorialLevel);
-				_currentTutorialSteps = _tutorialStepList.levels[_currentTutorialLevel].steps;
-				_currentTutorialEventSteps = _tutorialStepList.levels[_currentTutorialLevel].eventSteps;
-				_tutorialIsActive = true;
-				_currentTutorialStep = 0;
+				Log.Info("DIRECTOR: STARTING TUTORIAL " + currentTutorialLevel);
+
+				_steps = new List<TutorialStep>(_tutorialStepList.levels[currentTutorialLevel].steps);
+				_eventSteps = _tutorialStepList.levels[currentTutorialLevel].eventSteps;
+
+				_eventCounter.Clear();
+				_preventEvents.Clear();
 				_currentStep = null;
+
+				_tutorialIsActive = true;
+
+				_gameHasEnded = false;
 			}
 		}
 
@@ -58,20 +67,20 @@ namespace GGJ15.TheTutorial
 		{
 			if (_tutorialIsActive)
 			{
-				if (_currentTutorialStep < _currentTutorialSteps.Count)
+				if (_steps.Count > 0)
 				{
 					if (_currentStep == null)
 					{
-						Log.Info("DIRECTOR: INITALIZING STEP " + _currentTutorialStep);
-						_currentStep = _currentTutorialSteps[_currentTutorialStep];
+						Log.Info("DIRECTOR: INITALIZING NEXT STEP");
+						_currentStep = _steps[0];
+						_steps.RemoveAt(0);
 						StartCurrentStep();
 					}
 
 					if (Time.time > _timeStepStarted + _currentStep.duration)
 					{
-						_currentTutorialStep += 1;
 						_currentStep = null;
-						Log.Info("DIRECTOR: INCREASING STEP " + _currentTutorialStep);
+						Log.Info("DIRECTOR: MOVING TO NEXT STEP");
 					}
 				}
 				else
@@ -143,25 +152,60 @@ namespace GGJ15.TheTutorial
 		{
 			Log.Info("DIRECTOR: GAME EVENT TRIGGERED " + id);
 
-			if (_currentTutorialEventSteps != null)
+			if (_preventEvents.Contains(id) || _gameHasEnded)
 			{
-				TutorialStep step = null;
+				Log.Info("DIRECTOR: IGNORING EVENT " + id + " / " + _gameHasEnded);
+				return;
+			}
 
-				_currentTutorialEventSteps.TryGetValue(id, out step);
+			int currentEventCount = 0;
+			_eventCounter.TryGetValue(id, out currentEventCount);
 
-				if (step != null)
+			if (_eventSteps != null)
+			{
+				List<TutorialEventStep> eventSteps = new List<TutorialEventStep>();
+
+				foreach (var step in _eventSteps)
+				{
+					if (step.eventId == id
+					    && currentEventCount >= step.eventCount)
+					{
+						eventSteps.Add(step);
+
+						if (step.executeOnlyOnce)
+						{
+							_preventEvents.Add(id);
+							break;
+						}
+					}
+				}					
+
+				float delay = 0f;
+
+				if (eventSteps.Count > 0)
 				{
 					Log.Info("DIRECTOR: GAME EVENT TRIGGERED STEP");
-					_currentStep = step;
+					_currentStep = eventSteps[0];
+					delay += _currentStep.duration;
 					StartCurrentStep();
+					eventSteps.RemoveAt(0);
+
+					for (int i = eventSteps.Count - 1; i > -1; i--)
+					{
+						var step = eventSteps[i];
+						_steps.Insert(0, step);
+						delay += step.duration;
+					}
 				}
 
 				if (id == GameEventId.PlayerReachedExit)
 				{
-					float delay = step != null ? step.duration : 0f;
+					_gameHasEnded = true;
 					StartCoroutine(EndGameAfterDelay(delay));
 				}
 			}
+				
+			_eventCounter[id] = currentEventCount + 1;
 		}
 
 		IEnumerator EndGameAfterDelay(float delay)

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 
 namespace GGJ15.TheTutorial
 {
