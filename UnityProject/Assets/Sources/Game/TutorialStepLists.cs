@@ -10,9 +10,9 @@ namespace GGJ15.TheTutorial
 		{
 			levels = new List<TutorialLevel>
 			{
-					_level3,
 				_level1,
 				_level2,
+				_level3,
 				_level4,
 				_level5,
 			};
