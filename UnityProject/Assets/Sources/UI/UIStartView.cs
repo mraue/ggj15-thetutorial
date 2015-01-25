@@ -15,6 +15,8 @@ namespace GGJ15.TheTutorial
 		int _animationIndex = 0;
 		Animation _animation;
 		int _levelMax;
+		public Text congratsLabel;
+
 
 		void Awake()
 		{
@@ -33,13 +35,54 @@ namespace GGJ15.TheTutorial
 			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
 			foreach(var obj in animationObjects)
 				obj.Disable ();
-
+			
 			Debug.Log("StartAnimation");
 			_animationIndex = 0;
 			_animation.Play (animationList[_animationIndex].name);
 			_animationIndex = 1;
 			_animation.Play (animationList[_animationIndex].name);
 			_levelMax = level;
+
+			string[] congratsOptions=new string[]{
+				"Congratulations!",
+				"Spectacular!",
+				"Mind Shattering!",
+				"Expectations Exceeded!",
+				"Fantastic!",
+				"Funtastic!",
+				"Superb Execution!",
+				"I cannot believe my eyes. If I had eyes.",
+				"Wow!",
+				"Hopefully someone else saw that!",
+				"History has been made!",
+				"Hot DAYUM!!",
+				"You taught me to believe in the power of my dreams!",
+				"Best player yet!",
+				"Other tutorials would be jealous!",
+				"Your performance moved us all.",
+				"I like how you move",
+				"Moves like Jäger",
+				"Moves like Jagger!",
+				"Fastest time yet!",
+				"Finally, a decent players!",
+				"Yours is the movement that will pierce the heavens!",
+				"Such Moves!",
+				"Bellissimo!",
+				"Fantastico!",
+				"Straordinario!",
+				"Incredible!",
+				"First Try! Wow!" 
+			};
+
+			if (_levelMax == 0)
+				congratsLabel.text = congratsOptions[0];
+			else
+				congratsLabel.text = congratsOptions[Random.Range(0,congratsOptions.Length)];
+
+
+
+
+
 
 		}
 
