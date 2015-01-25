@@ -19,9 +19,51 @@ namespace GGJ15.TheTutorial
 				new TutorialStep
 				{
 					text = "Press arrow to move",
+					duration = 12f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "How do you call ..",
 					duration = 2f,
 					actions = new List<TutorialActionId> { }
-				}
+				},
+				new TutorialStep
+				{
+					text = ".. a quest for answers?",
+					duration = 4f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "Question.",
+					duration = 4f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "That's right.",
+					duration = 12f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "How about that door over there?",
+					duration = 4f,
+					actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+				},
+				new TutorialStep
+				{
+					text = "It's shiny.",
+					duration = 4f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "I know you want it too ..",
+					duration = 4f,
+					actions = new List<TutorialActionId> { }
+				},
 			},
 			eventSteps = new List<TutorialEventStep>
 			{
