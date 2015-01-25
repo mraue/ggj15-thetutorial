@@ -16,6 +16,7 @@ namespace GGJ15.TheTutorial
 		public override float Activate()
 		{
 			Log.Info("TUTORIAL ACTION DOOR GROWS : ACTIVATE !!!!");
+			Services.currentInstance.audioService.PlaySound(AudioId.DoorGrows);
 			gameObject.SetActive(true);
 			float duration = 0f;
 			_tweener = _doorTransform.DOScale(Vector3.one * 13f, 8f).SetEase(Ease.InSine);

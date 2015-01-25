@@ -29,5 +29,6 @@ namespace GGJ15.TheTutorial
 		StarPop1 = 22,
 		StarPop2 = 23,
 		StarPop3 = 24,
+		DoorGrows = 25,
 	}
 }

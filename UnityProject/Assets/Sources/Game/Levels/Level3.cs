@@ -12,20 +12,27 @@ namespace GGJ15.TheTutorial
 				new TutorialStep
 				{
 					text = "Lesson {n}: Movements",
-					duration = 2f,
+					duration = 1.5f,
 					actions = new List<TutorialActionId> { },
 					blockPlayerMovement = true
 				},
 				new TutorialStep
 				{
-					text = "This time we will make it easy for you",
-					duration = 1f,
-					actions = new List<TutorialActionId> { TutorialActionId.HauntingDoor }
+					text = "This time we will make it easier for you",
+					duration = 3f,
+					actions = new List<TutorialActionId> { TutorialActionId.HauntingDoor },
+					blockPlayerMovement = true
 				},
 				new TutorialStep
 				{
 					text = "Just a little notch along the way",
-					duration = 1f,
+					duration = 3f,
+					actions = new List<TutorialActionId> { }
+				},
+				new TutorialStep
+				{
+					text = "Remember: press right to go RIGHT",
+					duration = 3f,
 					actions = new List<TutorialActionId> { }
 				}
 			},
@@ -36,7 +43,7 @@ namespace GGJ15.TheTutorial
 					{
 						eventId = GameEventId.PlayerReachedExit,
 						text = "YOU ARE THE BEST!!",
-						duration = 1f,
+						duration = 2f,
 						actions = new List<TutorialActionId> { },
 						blockPlayerMovement = true,
 						continuesTutorial = true,
@@ -47,7 +54,7 @@ namespace GGJ15.TheTutorial
 					{
 						eventId = GameEventId.PlayerReachedExit,
 						text = "NO REALLY",
-						duration = 1f,
+						duration = 2f,
 						actions = new List<TutorialActionId> { },
 						blockPlayerMovement = true
 					}
@@ -57,7 +64,7 @@ namespace GGJ15.TheTutorial
 					{
 						eventId = GameEventId.PlayerReachedExit,
 						text = "I MEAN IT",
-						duration = 1f,
+						duration = 2f,
 						actions = new List<TutorialActionId> { },
 						blockPlayerMovement = true
 					}
@@ -67,7 +74,7 @@ namespace GGJ15.TheTutorial
 					{
 						eventId = GameEventId.PlayerReachedExit,
 						text = "YOU ARE",
-						duration = 1f,
+						duration = 2f,
 						actions = new List<TutorialActionId> { },
 						blockPlayerMovement = true
 					}

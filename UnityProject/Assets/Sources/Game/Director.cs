@@ -190,6 +190,11 @@ namespace GGJ15.TheTutorial
 					StartCurrentStep();
 					eventSteps.RemoveAt(0);
 
+					if (id == GameEventId.PlayerReachedExit)
+					{
+						_steps.Clear();
+					}
+
 					for (int i = eventSteps.Count - 1; i > -1; i--)
 					{
 						var step = eventSteps[i];
@@ -201,7 +206,7 @@ namespace GGJ15.TheTutorial
 				if (id == GameEventId.PlayerReachedExit)
 				{
 					_gameHasEnded = true;
-					GGJ15.TheTutorial.Services.currentInstance.audioService.PlaySound(GGJ15.TheTutorial.AudioId.Cheer1);
+					Services.currentInstance.audioService.PlaySound(AudioId.Cheer1);
 					StartCoroutine(EndGameAfterDelay(delay));
 				}
 			}

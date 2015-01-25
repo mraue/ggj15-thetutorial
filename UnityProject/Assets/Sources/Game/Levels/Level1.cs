@@ -13,7 +13,7 @@ namespace GGJ15.TheTutorial
 				new TutorialStep
 				{
 					text = "Lesson {n}: Movement",
-					duration = 2f,
+					duration = 1.5f,
 					actions = new List<TutorialActionId> { },
 					blockPlayerMovement = true
 				},
