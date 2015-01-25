@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace GGJ15.TheTutorial
 {
 	public class UIStartView : MonoBehaviour
-	{	
+	{
 		public Image backgroundImage;
 
 		public List<AnimationClip> animationList;
@@ -41,14 +41,15 @@ namespace GGJ15.TheTutorial
 		public void StartAnimation(int level)
 		{
 			StartPanelAnimationClear[] animationObjects = GetComponentsInChildren<StartPanelAnimationClear>();
-			foreach(var obj in animationObjects)
-				obj.Disable ();
+			foreach (var obj in animationObjects)
+				obj.Disable();
 			
 			Debug.Log("StartAnimation");
 			_currentAnimationIndex = 0;
-			_lastAnimationToPlayIndex = Mathf.Min (level + 1, animationList.Count - 1);
+			_lastAnimationToPlayIndex = Mathf.Min(level + 1, animationList.Count - 1);
 
-			string[] congratsOptions=new string[]{
+			string[] congratsOptions = new string[]
+			{
 				"Congratulations!",
 				"Spectacular!",
 				"Mind Shattering!",
@@ -78,21 +79,16 @@ namespace GGJ15.TheTutorial
 				"First Try! Wow!"
 			};
 
-			if (_levelMax == 0)
-				congratsLabel.text = congratsOptions[0];
-			else
-				congratsLabel.text = congratsOptions[Random.Range(0,congratsOptions.Length)];
-
-
-
+			congratsLabel.text = congratsOptions[Random.Range(0, congratsOptions.Length)];
 		}
 
 		void Update()
 		{
-			if(!_animation.isPlaying && _currentAnimationIndex < _lastAnimationToPlayIndex){
+			if (!_animation.isPlaying && _currentAnimationIndex < _lastAnimationToPlayIndex)
+			{
 				_currentAnimationIndex++;
-				Debug.Log ("UIStartView:Update - Play animation "+animationList[_currentAnimationIndex].name);
-				_animation.Play (animationList[_currentAnimationIndex].name);
+				Debug.Log("UIStartView:Update - Play animation " + animationList[_currentAnimationIndex].name);
+				_animation.Play(animationList[_currentAnimationIndex].name);
 			}
 		}
 
@@ -116,7 +112,7 @@ namespace GGJ15.TheTutorial
 
 		public void Hide(bool animated = true)
 		{
-		//	_animation.CrossFade("Hide");
+			//	_animation.CrossFade("Hide");
 
 			float animationTime = (animated) ? 0.1f : 0f;
 			backgroundImage.DOColor(Color.clear, animationTime);
