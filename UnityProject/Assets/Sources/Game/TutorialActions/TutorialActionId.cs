@@ -5,7 +5,7 @@
 		None = 0,
 		SlowyPushyAction = 1,
 		DoorArrows = 2,
-		DoorClosesIn = 3,
+		HauntingDoor = 3,
 		DoorGrows = 4,
 		NightIsFalling = 5,
 	}
