@@ -10,7 +10,8 @@ namespace GGJ15.TheTutorial
 		public Image backgroundImage;
 
 		public List<AnimationClip> animationList;
-		int _animationIndex = 0;
+		int _currentAnimationIndex;
+		int _lastAnimationToPlayIndex;
 		Animation _animation;
 		int _levelMax;
 
@@ -21,7 +22,7 @@ namespace GGJ15.TheTutorial
 		void Awake()
 		{
 			_animation = GetComponent<Animation>();
-			_animationIndex = int.MaxValue;
+			_currentAnimationIndex = int.MaxValue;
 		}
 
 		public void OnStart()
@@ -44,11 +45,8 @@ namespace GGJ15.TheTutorial
 				obj.Disable ();
 			
 			Debug.Log("StartAnimation");
-			_animationIndex = 0;
-			_animation.Play (animationList[_animationIndex].name);
-			_animationIndex = 1;
-			_animation.Play (animationList[_animationIndex].name);
-			_levelMax = Mathf.Min(level, animationList.Count-1);
+			_currentAnimationIndex = 0;
+			_lastAnimationToPlayIndex = Mathf.Min (level + 1, animationList.Count - 1);
 
 			string[] congratsOptions=new string[]{
 				"Congratulations!",
@@ -61,7 +59,7 @@ namespace GGJ15.TheTutorial
 				"Superb Execution!",
 				"Wow!",
 				"Hopefully someone else saw that!",
-				"History has been made!",
+				"History has been made this day!",
 				"Hot DAYUM!!",
 				"You taught me to believe in the power of my dreams!",
 				"Best player yet!",
@@ -69,7 +67,6 @@ namespace GGJ15.TheTutorial
 				"Your performance moved us all.",
 				"I like how you move",
 				"Moves like Jäger",
-				"Moves like Jagger!",
 				"Fastest time yet!",
 				"Finally, a decent player!",
 				"Yours is the movement that will pierce the heavens!",
@@ -92,10 +89,10 @@ namespace GGJ15.TheTutorial
 
 		void Update()
 		{
-			if(!_animation.isPlaying && _animationIndex < _levelMax){
-				_animationIndex++;
-				Debug.Log ("UIStartView:Update - Play animation "+animationList[_animationIndex].name);
-				_animation.Play (animationList[_animationIndex].name);
+			if(!_animation.isPlaying && _currentAnimationIndex < _lastAnimationToPlayIndex){
+				_currentAnimationIndex++;
+				Debug.Log ("UIStartView:Update - Play animation "+animationList[_currentAnimationIndex].name);
+				_animation.Play (animationList[_currentAnimationIndex].name);
 			}
 		}
 
