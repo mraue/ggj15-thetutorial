@@ -88,6 +88,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 702c5b619fbc344fc91843f3cb267f36, type: 3}
   - audioId: 21
     audioClip: {fileID: 8300000, guid: 581fa75da86f64e9db059663e52f0945, type: 3}
+  - audioId: 25
+    audioClip: {fileID: 8300000, guid: a962b2f2ff8aa469fbffa2f1d1d711ad, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

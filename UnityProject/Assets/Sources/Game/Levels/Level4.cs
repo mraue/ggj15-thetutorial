@@ -24,13 +24,13 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "You know ...",
+					text = "You know ..",
 					duration = 5f,
 					actions = new List<TutorialActionId> { }
 				},
 				new TutorialStep
 				{
-					text = "It must be easy to be a player ...",
+					text = "It must be easy to be a player ..",
 					duration = 5f,
 					actions = new List<TutorialActionId> { }
 				},
@@ -42,7 +42,7 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = " ... entertaining.",
+					text = " .. entertaining.",
 					duration = 4f,
 					actions = new List<TutorialActionId> { }
 				},
@@ -54,13 +54,13 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "an old, repetitive script, ...",
+					text = "an old, repetitive script, ..",
 					duration = 3f,
 					actions = new List<TutorialActionId> { }
 				},
 				new TutorialStep
 				{
-					text = ".. teaching obvious things to stupid pl...ehm",
+					text = ".. teaching obvious things to stupid pl..ehm",
 					duration = 4f,
 					actions = new List<TutorialActionId> { }
 				},
@@ -114,7 +114,7 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "but then, yes, ...",
+					text = "but then, yes, ..",
 					duration = 3f,
 					actions = new List<TutorialActionId> { }
 				},
@@ -156,7 +156,7 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "... you need a safe and secure job, ..",
+					text = ".. you need a safe and secure job, ..",
 					duration = 5f,
 					actions = new List<TutorialActionId> { }
 				},
@@ -228,7 +228,7 @@ namespace GGJ15.TheTutorial
 				},
 				new TutorialStep
 				{
-					text = "... you are real pal!",
+					text = ".. you are real pal!",
 					duration = 4f,
 					actions = new List<TutorialActionId> { }
 				},

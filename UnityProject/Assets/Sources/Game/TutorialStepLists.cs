@@ -14,6 +14,7 @@ namespace GGJ15.TheTutorial
 				_level2,
 				_level3,
 				_level4,
+				_level5,
 			};
 		}
 	}
