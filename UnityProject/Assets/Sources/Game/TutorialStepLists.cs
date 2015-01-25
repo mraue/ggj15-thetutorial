@@ -34,9 +34,10 @@ namespace GGJ15.TheTutorial
 							new TutorialEventStep
 							{
 								eventId = GameEventId.ReachedLeftCollider,
-								text = "PRESS D TO MOVE LEFT",
+								text = "PRESS RIGHT ARROW TO MOVE RIGHT",
 								duration = 2f,
 								actions = new List<TutorialActionId> { TutorialActionId.SlowyPushyAction },
+								executeOnlyOnce = true,
 								continuesTutorial = true,
 							}
 						},
@@ -46,7 +47,8 @@ namespace GGJ15.TheTutorial
 								eventId = GameEventId.PassedCenter,
 								text = "AWESOME JOB! KEEP GOING",
 								duration = 2f,
-								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows },
+								executeOnlyOnce = true
 							}
 						},
 						{ 
@@ -67,14 +69,14 @@ namespace GGJ15.TheTutorial
 					{
 						new TutorialStep
 						{
-							text = "Lesson {n}: Movement",
+							text = "Lesson {n}: Movements",
 							duration = 2f,
 							actions = new List<TutorialActionId> { },
 							blockPlayerMovement = true
 						},
 						new TutorialStep
 						{
-							text = "Press right arrow to move right",
+							text = "Press arrow to move",
 							duration = 2f,
 							actions = new List<TutorialActionId> { }
 						}
@@ -89,23 +91,36 @@ namespace GGJ15.TheTutorial
 								duration = 2f,
 								actions = new List<TutorialActionId> { TutorialActionId.DoorGrows },
 								continuesTutorial = true,
-								eventCount = 2,
+								eventCount = 1,
+								executeOnlyOnce = true
 							}
 						},
 						{ 
 							new TutorialEventStep
 							{
 								eventId = GameEventId.PassedCenter,
-								text = "AWESOME JOB! KEEP GOING",
+								text = "YOU ARE A GENIUS!",
 								duration = 2f,
-								actions = new List<TutorialActionId> { TutorialActionId.DoorArrows }
+								actions = new List<TutorialActionId> { },
+								executeOnlyOnce = true,
+							}
+						},
+						{ 
+							new TutorialEventStep
+							{
+								eventId = GameEventId.PassedCenter,
+								text = "WAY TO GO!",
+								duration = 2f,
+								actions = new List<TutorialActionId> { },
+								executeOnlyOnce = true,
+								eventCount = 1
 							}
 						},
 						{ 
 							new TutorialEventStep
 							{
 								eventId = GameEventId.PlayerReachedExit,
-								text = "YOU DID IT!!",
+								text = "YOU ARE THE BEST!!",
 								duration = 1f,
 								actions = new List<TutorialActionId> { },
 								blockPlayerMovement = true

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace GGJ15.TheTutorial
 {
@@ -26,6 +25,5 @@ namespace GGJ15.TheTutorial
 			gameObject.SetActive(false);
 			Log.Info("TUTORIAL SLOW BLOCK PUSHER : RESET LEVEL");
 		}
-
 	}
 }

@@ -24,7 +24,7 @@ namespace GGJ15.TheTutorial
 		bool _tutorialIsActive;
 
 		Dictionary<GameEventId, int> _eventCounter = new Dictionary<GameEventId, int>();
-		List<GameEventId> _preventEvents = new List<GameEventId>();
+		List<TutorialEventStep> _preventStep = new List<TutorialEventStep>();
 
 		bool _gameHasEnded;
 
@@ -54,7 +54,7 @@ namespace GGJ15.TheTutorial
 				_eventSteps = _tutorialStepList.levels[currentTutorialLevel].eventSteps;
 
 				_eventCounter.Clear();
-				_preventEvents.Clear();
+				_preventStep.Clear();
 				_currentStep = null;
 
 				_tutorialIsActive = true;
@@ -152,9 +152,9 @@ namespace GGJ15.TheTutorial
 		{
 			Log.Info("DIRECTOR: GAME EVENT TRIGGERED " + id);
 
-			if (_preventEvents.Contains(id) || _gameHasEnded)
+			if ( _gameHasEnded)
 			{
-				Log.Info("DIRECTOR: IGNORING EVENT " + id + " / " + _gameHasEnded);
+				Log.Info("DIRECTOR: IGNORING EVENT");
 				return;
 			}
 
@@ -167,15 +167,15 @@ namespace GGJ15.TheTutorial
 
 				foreach (var step in _eventSteps)
 				{
-					if (step.eventId == id
+					if (!_preventStep.Contains(step)
+						&& step.eventId == id
 					    && currentEventCount >= step.eventCount)
 					{
 						eventSteps.Add(step);
 
 						if (step.executeOnlyOnce)
 						{
-							_preventEvents.Add(id);
-							break;
+							_preventStep.Add(step);
 						}
 					}
 				}					
