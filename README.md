@@ -4,7 +4,7 @@
 
 Game created for the [Global Game Jam 2015](http://globalgamejam.org/) (@GGJ15)
 
-[Game page on the global game jam webpage](=http://globalgamejam.org/2015/games/tutorial-quest)
+You can find more details on the [game page at gobalgamjam.org](http://globalgamejam.org/2015/games/tutorial-quest).
 
 ### Team
 
