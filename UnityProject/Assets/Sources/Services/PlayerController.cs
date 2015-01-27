@@ -15,6 +15,8 @@ namespace GGJ15.TheTutorial
 
 		Vector3 initScale;
 
+		AudioSource _audioSource;
+
 		// Use this for initialization
 		void Start () {
 		}
@@ -23,6 +25,7 @@ namespace GGJ15.TheTutorial
 			initScale = playerSprite.transform.localScale;
 			initPlayer();
 			GameContext.currentInstance.playerController = this;
+			_audioSource = GetComponent<AudioSource>();
 		}
 
 		public void initPlayer (){
@@ -53,6 +56,17 @@ namespace GGJ15.TheTutorial
 
 				bool Walking = Mathf.Abs(move) > 0.1f;
 				playerSprite.GetComponent<Animator>().SetBool("Walking",Walking);
+
+				if (Walking && !_audioSource.isPlaying)
+				{
+					_audioSource.Play();
+
+				}
+				else if (!Walking && _audioSource.isPlaying)
+				{
+					_audioSource.Stop();
+				}
+
 				if (rigidbody2D.velocity.x < 0)
 					playerSprite.transform.localScale = new Vector3(-initScale.x,initScale.y,initScale.z);
 				else

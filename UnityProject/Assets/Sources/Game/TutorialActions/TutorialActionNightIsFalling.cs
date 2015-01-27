@@ -12,10 +12,13 @@ namespace GGJ15.TheTutorial
 		Tweener _tweener2;
 		Tweener _tweener3;
 
+		AudioSource _audioSource;
+
 		const float _duration = 20f;
 
 		void Awake()
 		{
+			_audioSource = GetComponent<AudioSource>();
 		}
 
 		public override float Activate()
@@ -25,6 +28,7 @@ namespace GGJ15.TheTutorial
 			_tweener1 = darkOverlay.DOFade(1f, _duration);
 			_tweener2 = moon.DOFade(1f, _duration);
 			_tweener3 = moonContainer.DORotate(new Vector3(0, 0, 0), _duration);
+			_audioSource.Play();
 			return _duration;
 		}
 
@@ -43,6 +47,8 @@ namespace GGJ15.TheTutorial
 			moon.color = color;
 
 			moonContainer.DORotate(new Vector3(0, 0, 20), 0);
+
+			_audioSource.Stop();
 
 			Log.Info("TUTORIA ACTION NIGHT IS FALLING: RESET LEVEL");
 		}

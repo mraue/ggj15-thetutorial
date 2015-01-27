@@ -820,6 +820,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: c0e26184b7d824a29ab6cb8f7cd8a7bc, type: 2}
   - {fileID: 7400000, guid: df175d0032e6344f1883b562805f42dd, type: 2}
   - {fileID: 7400000, guid: 55c2370e7b29b4c019a4c4c8dcbd89c7, type: 2}
+  continueButton: {fileID: 252804727}
   congratsLabel: {fileID: 1197310024}
 --- !u!111 &1049455372
 Animation:
