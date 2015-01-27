@@ -45,6 +45,11 @@ namespace GGJ15.TheTutorial
 		public void despawnPlayer(){
 			//rigidbody2d.isKinematic = false;
 			playerSprite.GetComponent<SpriteRenderer>().DOColor(Color.clear,0.5f);
+
+			if(_audioSource.isPlaying)
+			{
+				_audioSource.Stop();
+			}
 		}
 
 		// Update is called once per frame
@@ -84,6 +89,11 @@ namespace GGJ15.TheTutorial
 				rigidbody2D.velocity = Vector2.zero;
 			if(!val)
 				playerSprite.GetComponent<Animator>().SetBool("Walking",false);
+
+			if(!allowMovement && _audioSource.isPlaying)
+			{
+				_audioSource.Stop();
+			}
 		}			
 	}
 }
