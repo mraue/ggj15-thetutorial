@@ -7,7 +7,7 @@ namespace GGJ15.TheTutorial
 		public PlayerController player;
 		public GameObject theDoor;
 
-		const float _maxSpeed = 0.5f;
+		const float _maxSpeed = 2f;
 		float _currentSpeed = 0f;
 		Vector3 _startingPos;
 
