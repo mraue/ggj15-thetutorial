@@ -10,6 +10,9 @@ namespace GGJ15.TheTutorial
 		public Image backgroundImage;
 
 		public List<AnimationClip> animationList;
+
+		public Button continueButton;
+
 		int _currentAnimationIndex;
 		int _lastAnimationToPlayIndex;
 		Animation _animation;
@@ -23,6 +26,7 @@ namespace GGJ15.TheTutorial
 		{
 			_animation = GetComponent<Animation>();
 			_currentAnimationIndex = int.MaxValue;
+			continueButton.interactable = false;
 		}
 
 		public void OnStart()
@@ -96,6 +100,7 @@ namespace GGJ15.TheTutorial
 		{
 			//	_animation.CrossFade("Show");
 			
+			continueButton.interactable = true;
 
 			AudioId cheerEffect = _cheerSounds[Random.Range(0, _cheerSounds.Length)];
 			Services.currentInstance.audioService.PlaySound(cheerEffect);
@@ -107,12 +112,13 @@ namespace GGJ15.TheTutorial
 			
 			backgroundImage.transform.DOScale(Vector3.one, animationTime).SetEase(Ease.OutBack, 1.1f);
 			backgroundImage.DOColor(Color.white, 0.1f);
-			
+
 		}
 
 		public void Hide(bool animated = true)
 		{
 			//	_animation.CrossFade("Hide");
+			continueButton.interactable = false;
 
 			float animationTime = (animated) ? 0.1f : 0f;
 			backgroundImage.DOColor(Color.clear, animationTime);
