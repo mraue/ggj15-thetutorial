@@ -27,8 +27,7 @@ namespace GGJ15.TheTutorial
 			darkOverlay.gameObject.SetActive(true);
 			_tweener1 = darkOverlay.DOFade(1f, _duration);
 			_tweener2 = moon.DOFade(1f, _duration);
-			_tweener3 = moonContainer.DORotate(new Vector3(0, 0, 0), _duration);
-			_audioSource.Play();
+			_tweener3 = moonContainer.DORotate(new Vector3(0, 0, 0), _duration).OnComplete(_audioSource.Play);
 			return _duration;
 		}
 
@@ -48,7 +47,10 @@ namespace GGJ15.TheTutorial
 
 			moonContainer.DORotate(new Vector3(0, 0, 20), 0);
 
-			_audioSource.Stop();
+			if (_audioSource.isPlaying)
+			{
+				_audioSource.Stop();
+			}
 
 			Log.Info("TUTORIA ACTION NIGHT IS FALLING: RESET LEVEL");
 		}
