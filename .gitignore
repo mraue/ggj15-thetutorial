@@ -16,3 +16,4 @@ UnityProject.sln
 UnityProject/Assembly-CSharp-vs.csproj
 UnityProject/*.csproj
 UnityProject/UnityProject.userprefs
+.DS_Store

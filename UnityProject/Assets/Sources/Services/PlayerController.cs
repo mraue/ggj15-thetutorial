@@ -56,7 +56,7 @@ namespace GGJ15.TheTutorial
 		void FixedUpdate () {
 			if (allowMovement){
 				float move = Input.GetAxis ("Horizontal");
-				rigidbody2D.velocity = new Vector2(move * speed, rigidbody2D.velocity.y);
+				GetComponent<Rigidbody2D>().velocity = new Vector2(move * speed, GetComponent<Rigidbody2D>().velocity.y);
 
 
 				bool Walking = Mathf.Abs(move) > 0.1f;
@@ -72,7 +72,7 @@ namespace GGJ15.TheTutorial
 					_audioSource.Stop();
 				}
 
-				if (rigidbody2D.velocity.x < 0)
+				if (GetComponent<Rigidbody2D>().velocity.x < 0)
 					playerSprite.transform.localScale = new Vector3(-initScale.x,initScale.y,initScale.z);
 				else
 					playerSprite.transform.localScale = initScale;
@@ -86,7 +86,7 @@ namespace GGJ15.TheTutorial
 		public void setMovement(bool val){
 			allowMovement = val;
 			if  (!val)
-				rigidbody2D.velocity = Vector2.zero;
+				GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			if(!val)
 				playerSprite.GetComponent<Animator>().SetBool("Walking",false);
 

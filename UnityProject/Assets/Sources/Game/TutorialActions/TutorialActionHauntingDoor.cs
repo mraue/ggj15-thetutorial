@@ -36,7 +36,7 @@ namespace GGJ15.TheTutorial
 		void FixedUpdate()
 		{
 			if (_isActive
-				&& player.rigidbody2D.velocity.x < 0f)
+				&& player.GetComponent<Rigidbody2D>().velocity.x < 0f)
 			{
 				_currentSpeed += 0.08f;
 				_currentSpeed = System.Math.Min(_currentSpeed, _maxSpeed);
